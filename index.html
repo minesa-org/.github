@@ -3,434 +3,345 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Minesa" />
-        <meta
-            property="og:description"
-            content="Minesa, everything is now easier and minimalisted."
-        />
-        <meta property="og:image" content="./assets/images/main_logo.png" />
-        <meta property="og:url" content="https://minesa.live" />
-        <meta property="og:type" content="Utilities" />
-        <title>Minesa™ ・ A Place To Learn</title>
-        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-        <script type="module" defer>
-            import { scrollToTop } from "./scrollToTop.js";
-            scrollToTop(600);
-        </script>
-        <link
-            rel="shortcut icon"
-            href="./assets/images/favicon.png"
-            type="image/jpg"
-        />
+        <title>Minesa Hub</title>
+
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <!-- Top Blured Item -->
-        <div id="blurred-item"></div>
+        <!-- header -->
+        <header class="fade-up">
+            <!-- logo -->
+            <div class="logo__container">
+                <img src="./assets/icons/cube.png" alt="Logo of Minesa" />
+                <span>Minesa</span>
+            </div>
 
-        <!-- Grid Container -->
-        <div class="grid-container">
-            <!-- Header of the Website -->
-            <header>
-                <!-- Our Logo -->
-                <img
-                    id="main-logo"
-                    src="./assets/images/main_logo.png"
-                    alt="Minesa's Logo"
-                />
+            <!-- hero image-->
+            <img src="assets/people/ita/ita_support.png" alt="ita with cubes" />
+        </header>
 
-                <!-- Navigation Items -->
-                <nav>
-                    <!-- Unordered List -->
-                    <ul>
-                        <!-- List Item -->
-                        <li class="nav-item">
-                            <a href="#apps">Apps</a>
-                        </li>
+        <!-- main -->
+        <main class="fade-up">
+            <!-- short information about us -->
+            <article>
+                <h1>This is, reborn.</h1>
+                <span class="dark-tag">
+                    Minesa Hub, Where Innovation and Inclusivity Converge.
+                </span>
+                <p>
+                    <span class="highlighted-text black">At Minesa Hub,</span>
+                    we're commited to empowering individuals in the world of
+                    programming and problem-solving.
+                </p>
+            </article>
 
-                        <!-- List Item -->
-                        <li class="nav-item"><a href="#team">Team</a></li>
+            <!-- main section of minesa -->
+            <div class="main__container">
+                <section class="main__section background-box dark">
+                    <!-- tag of section -->
+                    <span>Coding</span>
+                    <h2>
+                        Revolutionizing the
+                        <span class="highlighted-text blue">
+                            world of coding.
+                        </span>
+                    </h2>
+                    <p>
+                        <span class="highlighted-text white"
+                            >Effortlessly create and customize solutions to aid
+                            your coding projects,
+                        </span>
+                        elevate your design, explore AI's potential, and benefit
+                        from a thriving community of support.
+                    </p>
 
-                        <!-- List Item -->
-                        <li class="nav-item">
-                            <a
-                                style="color: var(--primary-color)"
-                                href="#minesa-plus"
-                                >Minesa+</a
-                            >
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <main>
-                <section id="hero-section" class="section-container">
-                    <div id="hero-content">
-                        <h1>An Inclusive Haven for All.</h1>
-
-                        <p>
-                            <strong
-                                >Minesa Hub, Where Innovation and Inclusivity
-                                Converge.</strong
-                            >
-                            <br />
-                            At Minesa Hub, we're committed to empowering
-                            individuals in the world of programming and
-                            problem-solving. We recognize the hurdles that come
-                            with homework assignments and intricate coding
-                            projects. Our goal is to foster a nurturing space
-                            where members can elevate their expertise, foster
-                            collaboration, and forge enduring connections.
-                        </p>
-                    </div>
-                    <img
-                        id="hero-logo"
-                        src="./assets/images/logo.png"
-                        alt="logo"
-                    />
-                </section>
-                <section id="apps" class="backgrounded-section odd">
-                    <div class="section-text">
-                        <h6 class="section-topic">CODING</h6>
-                        <h2>
-                            Revolutionizing the
-                            <span class="cyan-highlighted-text"
-                                >world of coding.</span
-                            >
-                        </h2>
-                        <p>
-                            Effortlessly create and customize solutions to aid
-                            your coding projects, elevate your design, explore
-                            AI's potential, and benefit from a thriving
-                            community of support.
-                            <span class="secondary-text">
-                                Introducing the latest tools for helping,
-                                improving, and innovating your coding
-                                journey.</span
-                            >
-                        </p>
-                    </div>
-                    <div class="image-container">
+                    <!-- ita image's container-->
+                    <div class="ita__image__container">
                         <img
-                            class="section-image"
-                            src="./assets/images/ita/ita_logo.png"
-                            alt="Ita's Image"
+                            src="assets/people/ita/ita_logo.png"
+                            alt="Ita Presentation"
                         />
-                        <h6 class="image-caption">Ita "Bluefire" Sun</h6>
+                        <span>Our Mascot: Ita</span>
                     </div>
                 </section>
-                <section class="no-backgrounded-section">
-                    <div class="section-text">
-                        <h2>Effortlessly Efficiency: Our Minimalist Apps.</h2>
-                        <p>
-                            Introducing our suite of apps, where simplicity and
-                            minimalist design reign supreme. We believe that
-                            functionality should be at your fingertips without
-                            the fuss. Our apps offer a clean, straightforward
-                            approach to everyday tasks, eliminating complexity
-                            while delivering efficiency. Experience the ease of
-                            use and elegance of design as you simplify your life
-                            with our minimalist apps.
-                        </p>
+
+                <!-- aside with box and images-->
+                <aside>
+                    <!-- horizontal container -->
+                    <div class="horizontal__container">
+                        <img
+                            src="./assets/people/ita/ita_background.png"
+                            alt=""
+                        />
+
+                        <!-- guild container -->
+                        <div class="guild__container">
+                            <div class="guild__top__container">
+                                <div class="guild__image__container">
+                                    <img
+                                        src="assets/people/mica.jpg"
+                                        alt="Mica"
+                                    />
+                                    <img
+                                        src="assets/people/neo.jpg"
+                                        alt="Neo"
+                                    />
+                                    <img
+                                        src="assets/people/saku.jpg"
+                                        alt="Saku"
+                                    />
+                                    <img
+                                        src="assets/people/zolusion.jpg"
+                                        alt="Zolusion"
+                                    />
+                                    <img
+                                        src="assets/people/redent.jpg"
+                                        alt="Redent"
+                                    />
+                                </div>
+
+                                <a
+                                    href="https://discord.gg/wev5s6r4UB"
+                                    target="_target"
+                                >
+                                    Explore Now
+                                    <img
+                                        src="assets/icons/arrow_down_right.png"
+                                        alt="arrow down icon"
+                                    />
+                                </a>
+                            </div>
+
+                            <div class="guild__bottom__container">
+                                <img
+                                    src="assets/icons/hands_clap.svg"
+                                    alt="clapping hands icon"
+                                />
+                                <span>500+ Members</span>
+                                <span>We are on Discord!</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <ul class="section-tile-container">
-                        <li class="section-tile wide-tile">
+                    <!-- support container -->
+                    <a
+                        class="kaeru__container"
+                        href="./users/kaeru.html"
+                        target="_blank"
+                    >
+                        <div>
+                            <h3>
+                                Kaeru. Your
+                                <span class="highlighted-text brown">
+                                    Supportive Bot.
+                                </span>
+                            </h3>
+                            <p>
+                                Kaeru, the heart and soul of Minesa, is your
+                                dedicated support bot.
+                                <span id="cool-text"> Trust in Kaeru, </span>
+                                your ever-reliable companion on your journey
+                                with Minesa.
+                            </p>
+                        </div>
+                    </a>
+                </aside>
+            </div>
+            <section class="apps background-box light">
+                <span>Apps</span>
+                <h2>
+                    <img
+                        src="./assets/icons/laurel_leading.png"
+                        alt=""
+                        class="icon"
+                    />Our Minimalist
+                    <span class="highlighted-text purple">A<em>pp</em>s.</span
+                    ><img
+                        src="./assets/icons/laurel_trailing.png"
+                        alt=""
+                        class="icon"
+                    />
+                </h2>
+                <p>
+                    <span class="highlighted-text black">
+                        Our apps offer a clean, straightforward approach to
+                        everyday tasks, eliminating complexity while delivering
+                        efficiency.
+                    </span>
+                    Experience the ease of use and elegance of design as you
+                    simplify your life with our minimalist apps.
+                </p>
+
+                <ul class="section-tile-container">
+                    <li class="section-tile wide-tile">
+                        <a
+                            class="section-tile"
+                            href="./apps/factorial-wizard.html"
+                        >
+                            <div class="section-tile-text">
+                                <h6 class="section-topic">MATH</h6>
+                                <h4>Fact<em>o</em>rial Wiz<em>a</em>rd</h4>
+                                <span class="section-tile-time">
+                                    Aug 15th, 2023
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                    <div class="narrow-tiles-container">
+                        <li class="section-tile narrow-tile">
                             <a
                                 class="section-tile"
-                                href="./apps/calculate-factorial.html"
+                                href="./apps/tempconvert.html"
                             >
-                                <img
-                                    class="section-tile-image"
-                                    src="./assets/images/ita/ita_calculating.png"
-                                    alt=""
-                                />
                                 <div class="section-tile-text">
-                                    <h6 class="section-topic">MATH</h6>
-                                    <h4>Factorial Wizard</h4>
-                                    <p class="section-tile-text-p">
-                                        Introducing our app, your
-                                        factorial-solving companion. Seamlessly
-                                        calculate factorials with a tap,
-                                        simplifying complex math tasks and
-                                        saving you valuable time. Let us handle
-                                        the numbers while you focus on what
-                                        truly matters.
-                                    </p>
+                                    <h6 class="section-topic">CONVERTER</h6>
+                                    <h4>
+                                        Te<em>m</em>pC<em>o</em>nve<em>r</em>t
+                                    </h4>
                                     <span class="section-tile-time">
-                                        Aug 15th, 2023
+                                        Sep 30th, 2023
                                     </span>
                                 </div>
                             </a>
                         </li>
-                        <div class="narrow-tiles-container">
-                            <li class="section-tile narrow-tile">
-                                <a
-                                    class="section-tile"
-                                    href="./apps/convert-tempature.html"
-                                >
-                                    <img
-                                        class="section-tile-image"
-                                        src="./assets/images/ita/ita_tempConvert.png"
-                                        alt=""
-                                    />
-                                    <div class="section-tile-text">
-                                        <h6 class="section-topic">CONVERTER</h6>
-                                        <h4>TempConvert</h4>
-                                        <p class="section-tile-text-p">
-                                            Instant Celsius, Kelvin, and
-                                            Fahrenheit Conversions in Real Time.
-                                            Simplify your temperature-related
-                                            tasks on the go.
-                                        </p>
-                                        <span class="section-tile-time">
-                                            Sep 30th, 2023
-                                        </span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="section-tile narrow-tile">
-                                <a
-                                    class="section-tile"
-                                    href="./apps/random-generator.html"
-                                >
-                                    <img
-                                        class="section-tile-image"
-                                        src="./assets/images/ita/ita_randomGen.png"
-                                        alt=""
-                                    />
-                                    <div class="section-tile-text">
-                                        <h6 class="section-topic">UTILITY</h6>
-                                        <h4>RandomGen</h4>
-                                        <p class="section-tile-text-p">
-                                            Unlock the power of unpredictability
-                                            with RandomGen—a versatile tool for
-                                            generating colors, passwords, and
-                                            more. Whether you're designing,
-                                            securing, or just adding a dash of
-                                            randomness to your day, RandomGen
-                                            has you covered. Embrace the
-                                            unexpected and create with
-                                            confidence.
-                                        </p>
-                                        <span class="section-tile-time">
-                                            Oct 1st, 2023
-                                        </span>
-                                    </div>
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
-                </section>
-
-                <section id="team" class="backgrounded-section">
-                    <div class="section-text">
-                        <h6 class="section-topic">TEAM</h6>
-                        <h2>
-                            Diverse
-                            <span class="red-highlighted-text">Experts.</span>
-                        </h2>
-                        <p>
-                            Diverse experts fuel Minesa Hub's dynamic synergy,
-                            combining skills and perspectives to drive
-                            innovation and excellence.
-                            <span class="secondary-text"
-                                >Our team's rich tapestry of talent ensures
-                                comprehensive support and creative solutions for
-                                all.</span
+                        <li class="section-tile narrow-tile">
+                            <a
+                                class="section-tile"
+                                href="./apps/randomgen.html"
                             >
-                        </p>
+                                <div class="section-tile-text">
+                                    <h6 class="section-topic">UTILITY</h6>
+                                    <h4>Ra<em>n</em>domG<em>e</em>n</h4>
+                                    <span class="section-tile-time">
+                                        Oct 1st, 2023
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
                     </div>
-                    <div class="image-container">
-                        <img
-                            class="section-image"
-                            src="./assets/images/ita/ita_working.png"
-                            alt="Ita's Image"
-                        />
-                        <h6 class="image-caption">Our Mascot: Bluefire</h6>
-                    </div>
-                </section>
+                </ul>
+            </section>
+            <section class="team background-box dark">
+                <span>Team</span>
+                <h2>
+                    Diverse
+                    <span class="highlighted-text red">Experts.</span>
+                </h2>
+                <p>
+                    <span class="highlighted-text white"
+                        >Diverse experts fuel Minesa Hub's dynamic synergy,
+                        combining skills and perspectives to drive innovation
+                        and excellence.
+                    </span>
+                    Our team's rich tapestry of talent ensures comprehensive
+                    support and creative solutions for all.
+                </p>
 
-                <section class="no-backgrounded-section">
-                    <div class="section-text">
-                        <h2>Innovative Collaborators.</h2>
-                        <p>
-                            Introducing our exceptional team at Minesa Hub—
-                            <em>a synergy of diverse talents</em>, committed to
-                            innovation and excellence. Each member brings unique
-                            expertise, enriching our collaborative journey
-                            toward technical mastery and creative solutions.
-                        </p>
-                    </div>
-
-                    <div class="blob blue-blob"></div>
-                    <div class="blob red-blob"></div>
-                    <div class="blob purple-blob"></div>
-                    <ul class="team-member-list">
-                        <li class="team-member-tile">
-                            <a class="team-member" href="./users/mica.html">
-                                <img
-                                    class="team-member-image"
-                                    src="./assets/images/people/mica.jpg"
-                                    alt="Mica"
-                                />
-                                <h5 class="team-member-header">Mica</h5>
-                                <span class="team-member-task">Artist</span>
-                            </a>
-                        </li>
-                        <li class="team-member-tile">
-                            <a class="team-member" href="./users/neo.html">
-                                <img
-                                    class="team-member-image"
-                                    src="./assets/images/people/neo.jpg"
-                                    alt=""
-                                />
-                                <h5 class="team-member-header">Neo</h5>
-                                <span class="team-member-task">Leader</span>
-                            </a>
-                        </li>
-                        <li class="team-member-tile">
-                            <a class="team-member" href="./users/saku.html">
-                                <img
-                                    class="team-member-image"
-                                    src="./assets/images/people/saku.jpg"
-                                    alt=""
-                                />
-                                <h5 class="team-member-header">Saku</h5>
-                                <span class="team-member-task"
-                                    >Event Manager</span
-                                >
-                            </a>
-                        </li>
-                        <li class="team-member-tile">
-                            <a class="team-member" href="./users/liya.html">
-                                <img
-                                    class="team-member-image"
-                                    src="./assets/images/people/liya.jpg"
-                                    alt="Liya"
-                                />
-                                <h5 class="team-member-header">Liya</h5>
-                                <span class="team-member-task">Moderator</span>
-                            </a>
-                        </li>
-                        <li class="team-member-tile">
-                            <a class="team-member" href="./users/sugar.html">
-                                <img
-                                    class="team-member-image"
-                                    src="./assets/images/people/sugar.jpg"
-                                    alt="Sugar"
-                                />
-                                <h5 class="team-member-header">Sugar</h5>
-                                <span class="team-member-task">Moderator</span>
-                            </a>
-                        </li>
-                        <li class="team-member-tile">
-                            <a class="team-member" href="./users/zolusion.html">
-                                <img
-                                    class="team-member-image"
-                                    src="./assets/images/people/zolusion.jpg"
-                                    alt="Zolusion"
-                                />
-                                <h5 class="team-member-header">Zolusion</h5>
-                                <span class="team-member-task">Developer</span>
-                            </a>
-                        </li>
-                        <li class="team-member-tile">
-                            <a class="team-member" href="./users/babun.html">
-                                <img
-                                    class="team-member-image"
-                                    src="./assets/images/people/babun.jpg"
-                                    alt="Babun"
-                                />
-                                <h5 class="team-member-header">Babun</h5>
-                                <span class="team-member-task"
-                                    >Surveyor</span
-                                >
-                            </a>
-                        </li>
-                        <li class="team-member-tile">
-                            <a class="team-member" href="./users/redent.html">
-                                <img
-                                    class="team-member-image"
-                                    src="./assets/images/people/redent.jpg"
-                                    alt="Redent"
-                                />
-                                <h5 class="team-member-header">Redent</h5>
-                                <span class="team-member-task">Developer</span>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-                <section id="minesa-plus" class="backgrounded-section odd">
-                    <div class="section-text">
-                        <h6 class="section-topic">MINESA+</h6>
-                        <h2 class="gradient-text">Efficient Resolve.</h2>
-                        <p>
-                            At Minesa Hub, we redefine support.
-                            <span class="secondary-text"
-                                >We're your listening ear and guiding hand,
-                                whether it's a friendly chat or coding
-                                challenges. Experience unparalleled assistance
-                                that makes your journey smoother and your goals
-                                more achievable.
-                                <span
-                                    style="
-                                        color: var(--primary-color);
-                                        opacity: 0.9;
-                                    "
-                                    >Join us today and discover the
-                                    difference.</span
-                                ></span
-                            >
-                        </p>
-                    </div>
-                    <div class="image-container">
-                        <img
-                            class="section-image"
-                            src="./assets/images/ita/ita_support.png"
-                            alt="Ita's Image"
-                        />
-                        <h6 class="image-caption">Ita's team</h6>
-                    </div>
-                </section>
-                <section class="no-backgrounded-section">
-                    <div class="section-text">
-                        <h2>Meet with Minesa.</h2>
-                        <p>
-                            Connecting with Minesa is more than just joining a
-                            network; it's becoming part of a dynamic community.
-                            We value the connections we forge with our clients,
-                            partners, and supporters. Through open lines of
-                            communication, shared goals, and a commitment to
-                            mutual growth, we thrive together. Join us in
-                            building bridges that extend beyond business, and
-                            let's connect for a brighter future.
-                        </p>
-                    </div>
-                    <a class="ita-container" href="./users/ita.html">
-                        <div>
+                <ul class="team-member-list">
+                    <li class="team-member-tile">
+                        <a class="team-member" href="./users/mica.html">
                             <img
-                                id="ita-background-img"
-                                src="./assets/images/ita/ita_background.png"
+                                class="team-member-image"
+                                src="./assets/people/mica.jpg"
+                                alt="Mica"
+                            />
+                            <h5 class="team-member-header">Mica</h5>
+                            <span class="team-member-task">Artist</span>
+                        </a>
+                    </li>
+                    <li class="team-member-tile">
+                        <a class="team-member" href="./users/neo.html">
+                            <img
+                                class="team-member-image"
+                                src="./assets/people/neo.jpg"
                                 alt=""
                             />
-                            <div class="text-overlay">
-                                <h3>Ita: Your Supportive Bot</h3>
-                                <p>
-                                    Ita, the heart and soul of Minesa, is your
-                                    dedicated support bot and cherished mascot.
-                                    <span id="cool-text">Trust in Ita,</span>
-                                    your ever-reliable companion on your journey
-                                    with Minesa.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </section>
-            </main>
-            <footer>
-                <ul>
-                    <li><a href=""></a></li>
+                            <h5 class="team-member-header">Neo</h5>
+                            <span class="team-member-task"
+                                >Developer / Owner</span
+                            >
+                        </a>
+                    </li>
+                    <li class="team-member-tile">
+                        <a class="team-member" href="./users/saku.html">
+                            <img
+                                class="team-member-image"
+                                src="./assets/people/saku.jpg"
+                                alt=""
+                            />
+                            <h5 class="team-member-header">Saku</h5>
+                            <span class="team-member-task">Event Manager</span>
+                        </a>
+                    </li>
+                    <li class="team-member-tile">
+                        <a class="team-member" href="./users/sugar.html">
+                            <img
+                                class="team-member-image"
+                                src="./assets/people/sugar.jpg"
+                                alt="Sugar"
+                            />
+                            <h5 class="team-member-header">Sugar</h5>
+                            <span class="team-member-task">Moderator</span>
+                        </a>
+                    </li>
+                    <li class="team-member-tile">
+                        <a class="team-member" href="./users/yuu.html">
+                            <img
+                                class="team-member-image"
+                                src="./assets/people/yuu.jpg"
+                                alt="Yuu"
+                            />
+                            <h5 class="team-member-header">Yuu</h5>
+                            <span class="team-member-task">Moderator</span>
+                        </a>
+                    </li>
+                    <li class="team-member-tile">
+                        <a class="team-member" href="./users/zolusion.html">
+                            <img
+                                class="team-member-image"
+                                src="./assets/people/zolusion.jpg"
+                                alt="Zolusion"
+                            />
+                            <h5 class="team-member-header">Zolusion</h5>
+                            <span class="team-member-task">Developer</span>
+                        </a>
+                    </li>
+                    <li class="team-member-tile">
+                        <a class="team-member" href="./users/redent.html">
+                            <img
+                                class="team-member-image"
+                                src="./assets/people/redent.jpg"
+                                alt="Redent"
+                            />
+                            <h5 class="team-member-header">Redent</h5>
+                            <span class="team-member-task">Developer</span>
+                        </a>
+                    </li>
                 </ul>
-            </footer>
-        </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <span>Minesa+</span>
+                <h2>Efficient Resolve.</h2>
+                <p>
+                    <span class="highlighted-text white"> At Minesa Hub, </span>
+                    we redefine support. We're your listening ear and guiding
+                    hand, whether it's a friendly chat or coding challenges.
+                    <a href="" class="highlighted-text yellow"
+                        >Join us today and discover the difference.
+                    </a>
+                </p>
+            </div>
+            <ul>
+                <a href="https://discord.gg/wev5s6r4UB" target="_blank">
+                    <li>Discord</li>
+                </a>
+                <a href="https://github.com/minesa-time" target="_blank">
+                    <li>GitHub</li>
+                </a>
+            </ul>
+        </footer>
     </body>
 </html>

@@ -1,3 +1,4 @@
+// Closing Modal
 let openModal = document.getElementById("open-modal"),
     closeModal = document.getElementById("close-modal"),
     modal = document.getElementById("modal");

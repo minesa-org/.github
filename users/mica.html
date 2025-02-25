@@ -3,95 +3,45 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Minesa™ Team ・ Mica" />
-        <meta property="og:description" content="This is Mica." />
-        <meta property="og:image" content="./assets/images/Mica.jpg" />
-        <meta property="og:url" content="https://minesa.live/users/Mica" />
-        <meta property="og:type" content="Introduction" />
 
-        <title>Minesa™ Team ・ Mica</title>
-
-        <link rel="stylesheet" href="../default.css" />
+        <link rel="stylesheet" href="../style.css" />
         <link rel="stylesheet" href="user.css" />
-        <link
-            rel="shortcut icon"
-            href="../assets/images/favicon.png"
-            type="image/jpg"
-        />
-
-        <script src="user.js" defer></script>
-        <script src="../closing_modal.js" defer></script>
-        <script type="module" defer>
-            import { scrollToTop } from "../scrollToTop.js";
-            scrollToTop(200);
-        </script>
+        <title>Minesa™ Team ・ Mica</title>
+        <script src="./user.js" defer></script>
         <script>
             var currentUser = "mica";
         </script>
-        <script
-            src="https://kit.fontawesome.com/0eb9cf4c2e.js"
-            defer
-            crossorigin="anonymous"
-        ></script>
     </head>
     <body>
-        <div id="blurred-item"></div>
-        <header>
-            <div class="logo-container">
-                <img
-                    id="mica-is-logo"
-                    class="main-logo slide-bottom"
-                    src="../assets/images/logo.png"
-                    alt="Minesa's Logo"
-                />
-                <span class="logo-text slide-top">Team</span>
-            </div>
-            <nav>
-                <ul>
-                    <li class="nav-item slide-right">
-                        <a href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item highlighted-text slide-top">
-                        <a href="#minesa-plus">Minesa+</a>
-                    </li>
-                    <li class="nav-item slide-left">
-                        <a href="#more-information">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <nav>
+            <a class="back-button" href="../index.html">
+                <img src="../assets/icons/chevron_left.png" alt="Back" />
+                Back
+            </a>
+        </nav>
         <main>
-            <section class="user-layout">
-                <img
-                    class="user-image slide-left"
-                    src="../assets/images/people/mica.jpg"
-                    alt="Mica"
-                />
+            <section class="user__main">
+                <img id="fp" src="../assets/people/mica.jpg" alt="" />
 
-                <div class="user-description">
-                    <h1 class="slide-right">Mica</h1>
-                    <h4 class="slide-right">Artist</h4>
-                    <h6 class="slide-right">Admin</h6>
+                <div class="user__description">
+                    <h1>Mica</h1>
+                    <h4>Artist</h4>
                 </div>
             </section>
-            <hr />
-            <article class="slide-bottom">
-                <h1>
-                    This is
-                    <span class="highlighted-text">Mica!</span>
-                </h1>
-                <em
-                    ><q
-                        >In the school, my silence is my strength. But when I'm
-                        wrapped in my boyfriend's love, I become the talkative,
-                        joyful, and loving girl who can't stop smiling.</q
-                    ></em
-                >
+
+            <article>
+                <h2>
+                    Know
+                    <span class="highlighted-text gray">Mica</span> a little
+                    more<span class="highlighted-text blue">.</span>
+                </h2>
+                <br />
                 <p>
                     Mica is co-owner of
-                    <span class="highlighted-text">Minesa.</span> She is a
+                    <span class="highlighted-text black">Minesa.</span> She is a
                     Senior High School student.
                 </p>
+                <br />
                 <p>
                     She has consistently demonstrated academic excellence,
                     achieving outstanding results across various subjects since
@@ -111,6 +61,7 @@
                     <strong>artist of the year</strong> for her outstanding
                     creative contributions.
                 </p>
+                <br />
                 <p>
                     Beyond her academic achievements, she is equally dedicated
                     to her personal life. Neo, her boyfriend, is the fortunate
@@ -119,85 +70,29 @@
                     academic excellence with a vibrant and warm personality.
                 </p>
             </article>
-
-            <article class="extra slide-bottom" id="more-information">
-                <h2>More Information</h2>
-                <div class="box-wrapper">
-                    <div class="extra-box">
-                        <i class="fa-regular fa-address-card fa-xl"></i>
-                        <h4>Full Name</h4>
-                        <span>Micha Joy Jordan Tayo</span>
-                    </div>
-                    <div class="extra-box">
-                        <i class="fa-regular fa-map fa-xl"></i>
-                        <h4>Address</h4>
-                        <address>Philippines</address>
-                    </div>
-                    <div class="extra-box">
-                        <i class="fa-regular fa-envelope fa-xl"></i>
-                        <h4>Mail</h4>
-                        <a>Not avaliable.</a>
-                    </div>
-                    <div class="extra-box">
-                        <i class="fa-solid fa-ring fa-xl"></i>
-                        <h4>Marital Status</h4>
-                        <span>In relationship</span>
-                    </div>
-                    <div class="extra-box">
-                        <i class="fa-solid fa-car fa-xl"></i>
-                        <h4>Driving License</h4>
-                        <span>A2</span>
-                    </div>
-                    <div class="extra-box">
-                        <i class="fa-solid fa-scale-balanced fa-xl"></i>
-                        <h4>Zodiac</h4>
-                        <span>Taurus</span>
-                    </div>
-                    <div class="extra-box">
-                        <i class="fa-solid fa-language fa-xl"></i>
-                        <h4>Foreign Languages</h4>
-                        <span>Tagalog, English, Chinese, Bisaya</span>
-                    </div>
-                    <div class="extra-box">
-                        <i class="fa-regular fa-pen-ruler fa-xl"></i>
-                        <h4>Tools</h4>
-                        <span
-                            >Microsoft Excel, Microsoft Powerpoint, <br />
-                            Ibis Paint X</span
-                        >
-                    </div>
-                    <div class="extra-box">
-                        <i class="fa-regular fa-file-pdf fa-xl"></i>
-                        <h4>Certificates</h4>
-                        <a target="_blank" rel="noopener noreferrer"
-                            >Not displayed.</a
-                        >
-                    </div>
-                </div>
-                <div class="redirects">
-                    <h2>Redirects</h2>
-                    <a
-                        href="https://twitter.com/1828Mich"
-                        target="_blank"
-                        class="redirect-button"
-                    >
-                        <i class="fa-brands fa-x-twitter fa-xl"></i>
-                        <span>@1828Mich</span></a
-                    >
-                    <a
-                        href="https://github.com/michii18"
-                        target="_blank"
-                        class="redirect-button"
-                        ><i class="fa-brands fa-github fa-xl"></i>
-                        <span>michii18</span></a
-                    >
-                </div>
-            </article>
-
-            <div class="page-button-container">
-                <a class="page-button" href="./redent.html">Redent</a>
-                <a class="page-button" href="./neo.html">Neo</a>
-            </div>
         </main>
+
+        <footer>
+            <div>
+                <span>Minesa+</span>
+                <h2>Efficient Resolve.</h2>
+                <p>
+                    <span class="highlighted-text white"> At Minesa Hub, </span>
+                    we redefine support. We're your listening ear and guiding
+                    hand, whether it's a friendly chat or coding challenges.
+                    <a href="" class="highlighted-text yellow"
+                        >Join us today and discover the difference.
+                    </a>
+                </p>
+            </div>
+            <ul>
+                <a href="https://discord.gg/wev5s6r4UB" target="_blank">
+                    <li>Discord</li>
+                </a>
+                <a href="https://github.com/minesa-time"target="_blank">
+                    <li>GitHub</li>
+                </a>
+            </ul>
+        </footer>
     </body>
 </html>
