@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Minesa™ Team ・ Zolusion" />
+        <meta property="og:description" content="This is Zolusion." />
+        <meta property="og:image" content="./assets/images/zolusion.jpg" />
+        <meta property="og:url" content="https://minesa.live/users/zolusion" />
+        <meta property="og:type" content="Introduction" />
+        <title>Minesa™ Team ・ Zolusion</title>
+
+        <link rel="stylesheet" href="../default.css" />
+        <link rel="stylesheet" href="user.css" />
+        <link
+            rel="shortcut icon"
+            href="../assets/images/favicon.png"
+            type="image/jpg"
+        />
+
+        <script src="user.js" defer></script>
+        <script src="../closing_modal.js" defer></script>
+        <script type="module" defer>
+            import { scrollToTop } from "../scrollToTop.js";
+            scrollToTop(200);
+        </script>
+        <script>
+            var currentUser = "member";
+        </script>
+    </head>
+    <body>
+        <div id="blurred-item"></div>
+        <header>
+            <div class="logo-container">
+                <img
+                    id="member-logo"
+                    class="main-logo slide-bottom"
+                    src="../assets/images/logo.png"
+                    alt="Minesa's Logo"
+                />
+                <span class="logo-text slide-top">Team</span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="nav-item slide-right">
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item highlighted-text slide-top">
+                        <a href="#minesa-plus">Minesa+</a>
+                    </li>
+                    <li class="nav-item slide-left">
+                        <a href="#contact" id="open-modal">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="user-layout">
+                <img
+                    class="user-image slide-left"
+                    src="../assets/images/people/zolusion.jpg"
+                    alt="Zolusion"
+                />
+
+                <div class="user-description">
+                    <h1 class="slide-right">Zolusion</h1>
+                    <h4 class="slide-right">Developer</h4>
+                    <h6 class="slide-right">Member</h6>
+                </div>
+            </section>
+            <hr />
+            <article class="slide-bottom">
+                <h1>
+                    This is
+                    <span class="highlighted-text">Zolusion!</span>
+                </h1>
+                <em
+                    ><q
+                        >The best way to learn things is to be a part of a team
+                        and work on a project.</q
+                    ></em
+                >
+                <p>
+                    Zolusion, whose real name is Furkan Baykal is a member of
+                    <span class="highlighted-text">Minesa.</span>
+                    <strong>Furkan Baykal</strong> a 25-year-old software
+                    developer, hails from the vibrant city of Rotterdam.
+                </p>
+                <p>
+                    Currently pursuing his education in software development.
+                    Furkan is a dedicated and ambitious individual. Beyond his
+                    studies, he's also carving a promising career path as a
+                    <strong>front-end developer at Xeniox</strong>, where he
+                    specializes in the art of crafting user-friendly interfaces
+                    using the dynamic technologies of Laravel and React.
+                    <br />
+                    Furkan's journey in the tech world exemplifies a commitment
+                    to both learning and professional growth.
+                </p>
+            </article>
+            <div class="page-button-container">
+                <a class="page-button" href="./sugar.html">Sugar</a>
+                <a class="page-button" href="./babun.html">Babun</a>
+            </div>
+        </main>
+        <button
+            id="scroll-top-button"
+            onclick="scrollToTop()"
+            title="scrolling top"
+        >
+            <img src="../assets/images/up-arrow.svg" alt="" />
+        </button>
+        <dialog id="modal">
+            <div>
+                <h2>Contact</h2>
+                <ul>
+                    <li>
+                        <strong>Instagram:</strong>
+                        <a
+                            href="https://www.instagram.com/frknbkll/"
+                            target="_blank"
+                            >frknbkll</a
+                        >
+                    </li>
+                    <li>
+                        <strong>Github:</strong>
+                        <a href="https://github.com/Zolusion" target="_blank"
+                            >Zolusion</a
+                        >
+                    </li>
+                    <li>
+                        <strong>Mail:</strong>
+                        <a
+                            href="mailto: furkanbaykal2014@hotmail.com"
+                            target="_blank"
+                            >furkanbaykal2014@hotmail.com</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <button type="button" id="close-modal" title="close modal">
+                <img src="../assets/icons/xmark.png" alt="" />
+            </button>
+        </dialog>
+    </body>
+</html>
