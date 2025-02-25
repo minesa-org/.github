@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Factorial Wizard</title>
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="apps.css" />
+        <script src="randomgen.js" defer></script>
+    </head>
+    <body>
+        <nav>
+            <a class="back-button" href="../index.html">
+                <img src="../assets/icons/chevron_left.png" alt="Back" />
+                Back
+            </a>
+        </nav>
+
+        <main>
+            <h1>Ra<em>n</em>domG<em>e</em>n</h1>
+            <p>
+                This app helps you to create a random value for
+                <strong>color,</strong>
+                <strong>password</strong> or
+                <strong>number.</strong>
+            </p>
+
+            <section>
+                <label for="color-code" class="slide-left">
+                    <h4>Color</h4>
+                    <br />
+                    <div id="color-container">
+                        <div id="color-block"></div>
+                        <span id="color"></span>
+                    </div>
+                </label>
+
+                <label for="password-code" class="slide-right">
+                    <h4>Password</h4>
+                    <br />
+                    <span id="password"></span>
+                </label>
+
+                <label for="number-code" class="slide-left">
+                    <h4>Number</h4>
+                    <br />
+                    <span id="number"></span>
+                </label>
+            </section>
+
+            <button class="slide-right" id="refresh-button">Refresh</button>
+        </main>
+    </body>
+</html>

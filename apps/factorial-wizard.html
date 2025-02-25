@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Factorial Wizard</title>
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="apps.css" />
+        <script src="factorial-wizard.js" defer></script>
+    </head>
+    <body>
+        <nav>
+            <a class="back-button" href="../index.html">
+                <img src="../assets/icons/chevron_left.png" alt="Back" />
+                Back
+            </a>
+        </nav>
+
+        <main>
+            <h1>Fact<em>o</em>rial Wiz<em>a</em>rd</h1>
+            <p>
+                Introducing our sleek factorial calculator interface: Enter a
+                <strong>non-negative</strong> integer into the central input
+                box, then it will <strong>calculate</strong> automatically.
+            </p>
+
+            <section>
+                <label for="factorial-input">
+                    <h4>Enter Integer</h4>
+                </label>
+                <input
+                    id="factorial-input"
+                    class="slide-right"
+                    type="number"
+                    placeholder="1"
+                    maxlength="3"
+                    max="171"
+                />
+
+                <label for="factorial-result" class="slide-right">
+                    <h4>Result</h4>
+                    <span class="slide" id="factorial-result">
+                        n! = n * (n-1) * (n-2) * ... * 2 * 1
+                    </span>
+                </label>
+            </section>
+        </main>
+    </body>
+</html>
