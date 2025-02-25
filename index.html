@@ -5,257 +5,78 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>minesa hub</title>
         <link rel="stylesheet" href="style.css" />
+        <script src="script.js" async></script>
     </head>
 
     <body>
-        <video autoplay muted class="video-background">
-            <source
-                src="./assets/videos/linear-gradient.mov"
-                type="video/mp4"
-            />
-            Your browser does not support HTML5 video.
-        </video>
-        <audio id="background-audio" autoplay loop>
-            <source
-                src="assets/videos/Trankilo - i think i might be in love with you.mp3"
-                type="audio/mpeg"
-            />
-            Your browser does not support the audio element.
-        </audio>
-        <img
-            ondragstart="return false;"
-            class="silent-music-indicator"
-            src="assets/svgs/silent.svg"
-            alt=""
-        />
         <header>
-            <div class="header-container">
+            <!-- Logo -->
+            <img
+                class="springish"
+                src="./assets/vectors/minesa-logo.svg"
+                alt="Minesa's Logo"
+            />
+            <!-- Dynamic Notification -->
+            <div tabindex="-1" class="dynamic-header springish">
+                <span>Navigation</span>
+                <ul class="content">
+                    <a href="#team"><li>Teams ✦</li></a>
+                    <a href="#projects"><li>Projects</li></a>
+                </ul>
+                <div
+                    class="circle"
+                    style="border-color: var(--secondary-color)"
+                ></div>
+            </div>
+            <!-- Mail Icon -->
+            <a
+                href="mailto:minesa_hub@icloud.com?subject=I%20Want%20to%20Work%20Together"
+                rel="noopener noreferrer"
+            >
                 <img
-                    ondragstart="return false;"
-                    class="logo"
-                    src="./assets/svgs/play.svg"
+                    class="springish"
+                    src="./assets/vectors/contact.svg"
                     alt=""
                 />
-                <span class="logo-text">MINESA</span>
-            </div>
-            <nav>
-                <ul class="navigation-list">
-                    <a class="navigation-list-item" href="#app">
-                        <li>App</li>
-                    </a>
-                    <a class="navigation-list-item" href="#team">
-                        <li>Team</li>
-                    </a>
-                    <a
-                        target="_blank"
-                        class="navigation-list-item"
-                        href="https://discord.gg/invite/NdKBg9gFee"
-                    >
-                        <li>Join</li>
-                    </a>
-                </ul>
-            </nav>
+            </a>
         </header>
 
         <main>
-            <section class="section-hero">
-                <img
-                    class="hero"
-                    src="./assets/svgs/title.svg"
-                    alt=""
-                    ondragstart="return false;"
-                />
-                <a class="scroll-down-button" href="#ita">
-                    <img
-                        ondragstart="return false;"
-                        src="./assets/svgs/arrow_down.svg"
-                        alt=""
-                    />
+            <section id="team">
+                <p>
+                    We’re just a
+                    <u style="text-underline-offset: 5px">click away.</u>
+                </p>
+                <h1><span>Here, there,</span> and <span>everywhere!</span></h1>
+
+                <a href="./pages/team/mica.html" class="image-circle circle1">
+                    <img src="./assets/images/mica_face.jpeg" alt="Mica" />
+                </a>
+
+                <a href="./pages/team/neo.html" class="image-circle circle2">
+                    <img src="./assets/images/neo_face.jpeg" alt="Neo" />
+                </a>
+
+                <a href="./pages/team/saku.html" class="image-circle circle3">
+                    <img src="./assets/images/saku_face.jpeg" alt="Saku" />
                 </a>
             </section>
-
-            <section class="section-ita" id="ita">
-                <div class="section_ita-content-container">
-                    <div>
-                        <span class="tag ita-tag">
-                            <img
-                                ondragstart="return false;"
-                                class="icon"
-                                src="./assets/svgs/doc_text.svg"
-                                alt=""
-                            />
-                            coding
-                        </span>
-                        <h2 class="sub-title-ita">
-                            Revolutionizing the world of coding.
-                        </h2>
-                        <p class="content-text">
-                            <strong>
-                                Effortlessly create and customize solutions to
-                                aid your coding projects,
-                            </strong>
-                            elevate your design, explore AI's potential, and
-                            benefit from a thriving community of support.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="section_ita-row-container">
-                            <a class="primary-button" href="#team">
-                                Team
-                                <img
-                                    ondragstart="return false;"
-                                    class="icon"
-                                    src="./assets/svgs/arrow_down_right.svg"
-                                    alt=""
-                                />
-                            </a>
-                            <img
-                                ondragstart="return false;"
-                                class="admins-image"
-                                src="./assets/pngs/admins.png"
-                                alt="1"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <img
-                    ondragstart="return false;"
-                    class="ita-blob floating-element"
-                    src="./assets/pngs/ita.png"
-                    alt=""
-                />
-            </section>
-
-            <section id="app" class="section-kaeru">
-                <div class="wide-tile">
-                    <img
-                        ondragstart="return false;"
-                        class="kaeru-blob"
-                        src="assets/pngs/kaeru.png"
-                        alt=""
-                    />
-                    <div class="kaeru_main-content-container">
-                        <span class="tag kaeru-tag"
-                            ><img
-                                ondragstart="return false;"
-                                class="icon"
-                                src="assets/svgs/app_connect.svg"
-                                alt=""
-                            />
-                            apps</span
-                        >
-                        <h2 class="sub-title-kaeru">
-                            Kaeru. Your supportive app.
-                        </h2>
-                        <p class="content-text">
-                            <strong
-                                >Kaeru, the heart and soul of
-                                <span class="logo-text-small"
-                                    >MINESA</span
-                                ></strong
-                            >, is your dedicated support app. Elevate your
-                            design, explore AI's potential, and benefit from a
-                            thriving community of support.
-                        </p>
-                        <div class="section_kaeru-row-container">
-                            <a href="" class="secondary-button">For More</a>
-                            <a
-                                href="https://discord.com/oauth2/authorize?client_id=736561919292473454"
-                                class="primary-button"
-                                >Install</a
-                            >
-                        </div>
-                    </div>
-                </div>
-                <div class="short-tiles">
-                    <div class="short-tile">
-                        <h2 class="sub-title-kaeru">Right, it is free!</h2>
-                        <p class="content-text">
-                            You can use Kaeru for free! You can use her on your
-                            guilds/servers. Soon the API!
-                        </p>
-                    </div>
-                    <div class="short-tile">
-                        <h2 class="sub-title-kaeru">What else?</h2>
-                        <p class="content-text">
-                            Have you ever heard “User Apps”? Now you can use her
-                            on everywhere! It doesn’t have to be added to
-                            server, just your account.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="team" class="section-team">
-                <div class="team-tile">
-                    <div class="team-top-row">
-                        <span class="tag team-tag">
-                            <img
-                                ondragstart="return false;"
-                                class="icon"
-                                src="assets/svgs/persons.svg"
-                                alt=""
-                            />
-                            team
-                        </span>
-
-                        <img
-                            ondragstart="return false;"
-                            src="./assets/svgs/logo-purple.svg"
-                            alt=""
-                        />
-                    </div>
-
-                    <div class="section_team-content-container">
-                        <h2 class="sub-title-team">Diverse Experts.</h2>
-                        <p class="content-text">
-                            <strong class="highlighted-purple">
-                                Diverse experts fuel
-                                <span class="logo-text-small">MINESA</span>'s
-                                dynamic synergy, combining skills and
-                                perspectives to drive innovation and excellence.
-                            </strong>
-                            Our team's rich tapestry of talent ensures
-                            comprehensive support and creative solutions for
-                            all.
-                        </p>
-                        <div class="section_team-row-container">
-                            <div class="member">
-                                <img
-                                    ondragstart="return false;"
-                                    class="member-image"
-                                    src="./assets/pngs/mica.png"
-                                    alt=""
-                                />
-                                <span class="name">Mica</span>
-                                <span class="title">Artist</span>
-                            </div>
-                            <div class="member">
-                                <img
-                                    ondragstart="return false;"
-                                    class="member-image"
-                                    src="./assets/pngs/neo.png"
-                                    alt=""
-                                />
-                                <span class="name">Neo</span>
-                                <span class="title">Owner</span>
-                            </div>
-                            <div class="member">
-                                <img
-                                    ondragstart="return false;"
-                                    class="member-image"
-                                    src="./assets/pngs/saku.png"
-                                    alt=""
-                                />
-                                <span class="name">Saku</span>
-                                <span class="title">Event Manager</span>
-                            </div>
-                        </div>
+            <section id="projects">
+                <h2>Projects</h2>
+                <p>We will showcase our projects soon.</p>
+                <div>
+                    <a
+                        class="project"
+                        id="kaeru"
+                        href="./pages/projects/kaeru.html"
+                    >
+                        <p>Most powerful and functional ticket app.</p>
+                    </a>
+                    <div class="project" id="ita">
+                        <p>Your chat app.</p>
                     </div>
                 </div>
             </section>
         </main>
-
-        <script src="script.js"></script>
     </body>
 </html>

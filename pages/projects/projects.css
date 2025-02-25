@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url("../../assets/vectors/projects/kaeru_cursor.png") 16 16, auto;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    & .dynamic-header .content {
+        align-items: center;
+    }
+}
+
+.button {
+    padding: 0.2em 0.4em;
+    border: 2px solid var(--orange-color);
+    border-radius: 100px;
+    color: var(--orange-color) !important;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    text-decoration: none !important;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+section.landing {
+    margin: 0; /* Remove any unwanted margin */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Ensure it's positioned relative for pseudo-element positioning */
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(130, 66, 66, 0.4),
+            rgba(0, 0, 0, 0.9)
+        );
+        z-index: 0; /* Ensure the gradient is above the video but below the text */
+    }
+}
+
+#banner-video {
+    position: absolute; /* Position the video absolutely inside the hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Make sure the video covers the container */
+    z-index: -1; /* Place the video behind the text */
+}
+
+section.landing .overlayText {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    padding-inline: 50px;
+    z-index: 1;
+    color: #e7e7e7;
+    mix-blend-mode: lighten;
+
+    font-size: clamp(8px, 1.5vw - 45%, 24px);
+
+    gap: 0em;
+
+    & h1 {
+        color: #feb145;
+    }
+
+    & p {
+        color: rgb(137, 189, 219);
+    }
+}
+
+.skills {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    padding-inline: 50px;
+    mix-blend-mode: color-dodge;
+    margin-bottom: 2em;
+
+    & ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 8px;
+        border-block: 2px solid var(--color);
+        gap: 20px;
+        padding-inline: 0.5em;
+        flex-wrap: wrap-reverse;
+
+        --color: rgb(202, 222, 255);
+        & li {
+            color: var(--color);
+            font-size: clamp(8px, 3vw, 14px);
+            font-weight: 400;
+            font-variation-settings: "wdth" 90;
+        }
+    }
+}
