@@ -1,75 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Kaeru</title>
-        <link rel="stylesheet" href="../../style.css" />
-        <link rel="stylesheet" href="projects.css" />
-    </head>
-    <body>
-        <header>
-            <!-- Logo -->
-            <a href="../../index.html"
-                ><img
-                    class="springish"
-                    src="../../assets/vectors/projects/kaeru_logo.svg"
-                    alt="Kaeru's Logo"
-            /></a>
-            <!-- Dynamic Notification -->
-            <div tabindex="-1" class="dynamic-header springish">
-                <span style="color: var(--orange-color)">Invite</span>
-                <ul class="content">
-                    <h4
-                        class="now-playing"
-                        style="color: var(--secondary-color)"
-                    >
-                        User / Server
-                    </h4>
-                    <a
-                        href="https://discord.com/oauth2/authorize?client_id=736561919292473454"
-                        class="button"
-                        target="_blank"
-                        >You are ready to invtite</a
-                    >
-                </ul>
-                <div
-                    class="circle"
-                    style="border-color: var(--orange-color)"
-                ></div>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="rgb(254, 177, 69)">
+
+    <title>Kaeru — Pro-Tickets</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="projects.css" />
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <a href="../../index.html"><img class="springish" src="../../assets/vectors/projects/kaeru_logo.svg"
+                alt="Kaeru's Logo" /></a>
+        <!-- Dynamic Notification -->
+        <div tabindex="-1" class="dynamic-header springish">
+            <span style="color: var(--orange-color)">Invite</span>
+            <ul class="content">
+                <h4 class="now-playing" style="color: var(--secondary-color)">
+                    User / Server
+                </h4>
+                <a href="https://discord.com/oauth2/authorize?client_id=736561919292473454" class="button"
+                    target="_blank">You are ready to invtite</a>
+            </ul>
+            <div class="circle" style="border-color: var(--orange-color)"></div>
+        </div>
+        <!-- Empty Space -->
+        <div></div>
+    </header>
+    <main>
+        <section class="landing">
+            <video id="banner-video" autoplay muted playsinline loop>
+                <source src="../../assets/videos/Kaeru-background.webm" type="video/webm" />
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="titles overlayText">
+                <h1>Kaeru</h1>
+                <p>
+                    A <strong>new-gen</strong> multipurpose moderation app.
+                </p>
             </div>
-            <!-- Empty Space -->
-            <div></div>
-        </header>
-        <main>
-            <section class="landing">
-                <video id="banner-video" autoplay muted playsinline loop>
-                    <source
-                        src="../../assets/videos/Kaeru-background.webm"
-                        type="video/webm"
-                    />
-                    Your browser does not support the video tag.
-                </video>
 
-                <div class="titles overlayText">
-                    <h1>Kaeru</h1>
-                    <p>
-                        A <strong>new-gen</strong> multipurpose moderation app.
-                    </p>
-                </div>
+            <div class="skills">
+                <ul>
+                    <li>Pro-Tickets</li>
+                    <li>Unique Giveaway System</li>
+                    <li>Punishment System</li>
+                    <li>User Commands</li>
+                    <li>Message Commands</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-                <div class="skills">
-                    <ul>
-                        <li>Pro-Tickets</li>
-                        <li>Unique Giveaway System</li>
-                        <li>Punishment System</li>
-                        <li>User Commands</li>
-                        <li>Message Commands</li>
-                    </ul>
-                </div>
-            </section>
-        </main>
+    <script src="../../script.js"></script>
+</body>
 
-        <script src="../../script.js"></script>
-    </body>
 </html>

@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: url("../../assets/vectors/projects/kaeru_cursor.png") 16 16, auto;
+    cursor: url("../../assets/vectors/projects/kaeru_cursor.png") 16 16, auto !important;
 }
 
 header {
@@ -32,12 +32,14 @@ header {
 }
 
 section.landing {
-    margin: 0; /* Remove any unwanted margin */
+    margin: 0;
+    /* Remove any unwanted margin */
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    position: relative; /* Ensure it's positioned relative for pseudo-element positioning */
+    position: relative;
+    /* Ensure it's positioned relative for pseudo-element positioning */
 
     &::after {
         content: "";
@@ -46,23 +48,25 @@ section.landing {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-            to bottom,
-            rgba(130, 66, 66, 0.4),
-            rgba(0, 0, 0, 0.9)
-        );
-        z-index: 0; /* Ensure the gradient is above the video but below the text */
+        background: linear-gradient(to bottom,
+                rgba(130, 66, 66, 0.4),
+                rgba(0, 0, 0, 0.9));
+        z-index: 0;
+        /* Ensure the gradient is above the video but below the text */
     }
 }
 
 #banner-video {
-    position: absolute; /* Position the video absolutely inside the hero */
+    position: absolute;
+    /* Position the video absolutely inside the hero */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Make sure the video covers the container */
-    z-index: -1; /* Place the video behind the text */
+    object-fit: cover;
+    /* Make sure the video covers the container */
+    z-index: -1;
+    /* Place the video behind the text */
 }
 
 section.landing .overlayText {
@@ -79,7 +83,7 @@ section.landing .overlayText {
     gap: 0em;
 
     & h1 {
-        color: #feb145;
+        color: rgb(254, 177, 69);
     }
 
     & p {
@@ -108,6 +112,7 @@ section.landing .overlayText {
         flex-wrap: wrap-reverse;
 
         --color: rgb(202, 222, 255);
+
         & li {
             color: var(--color);
             font-size: clamp(8px, 3vw, 14px);

@@ -4,9 +4,6 @@
     --red-color: #ff6868;
     --orange-color: #ffae74;
     --yellow-color: #ffd5a6;
-    --purple-color: #a962dc;
-    --blue-color: #9cd0ff;
-    --green-color: #548f73;
     --dark-background-color: #1b1b1b;
     --light-background-color: #ebebeb;
     --secondary-color: #878787;
@@ -18,9 +15,7 @@
     --light-text-shadow: 0 0 20px rgba(255, 255, 255, 1);
     --transition: all 0.2s linear;
 
-    --gloock-font-family: "Gloock", sans-serif;
     --helvetica-neue-family: "Helvetica Neue", sans-serif;
-    --arial-rounded-family: "Arial Rounded MT Bold", sans-serif;
 }
 
 ::selection {
@@ -32,6 +27,31 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle (draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #777777;
+    /* Blue color */
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #000000;
+    /* Darker blue */
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -41,8 +61,7 @@ html {
 body {
     position: relative;
     background: linear-gradient(#fff, #0000, #fff),
-        conic-gradient(from 90deg at 93% 93%, silver 25%, #fff 0) 0 0 / 40px
-            40px;
+        conic-gradient(from 90deg at 93% 93%, silver 25%, #fff 0) 0 0 / 40px 40px;
 
     font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
@@ -57,7 +76,7 @@ header {
     align-items: center;
     padding: 0.5em 2em;
 
-    & > .dynamic-header {
+    &>.dynamic-header {
         width: 250px;
         height: 50px;
         outline: 0;
@@ -77,14 +96,15 @@ header {
 
         cursor: pointer;
 
-        & > span {
+        &>span {
             font-weight: 700;
             color: var(--light-text-color);
             cursor: default;
             font-size: large;
+            transition: font-size 300ms ease-in-out;
         }
 
-        & > .circle {
+        &>.circle {
             border-radius: 1000px;
             border: 5px solid rgb(226, 59, 38);
             width: 5px;
@@ -92,7 +112,7 @@ header {
             padding: 0px;
         }
 
-        & > ul {
+        &>ul {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -101,8 +121,8 @@ header {
             transition: opacity 638ms, transform 638ms;
             opacity: 0;
 
-            & > li,
-            & > a {
+            &>li,
+            &>a {
                 visibility: hidden;
                 text-decoration: none;
                 color: var(--secondary-color);
@@ -115,13 +135,14 @@ header {
                 }
             }
 
-            & > h4 {
+            &>h4 {
                 color: rgb(226, 59, 38);
                 font-weight: 400;
                 letter-spacing: -0.5px;
                 font-size: 13px;
             }
-            & > h5 {
+
+            &>h5 {
                 color: var(--light-text-color);
                 font-weight: 600;
                 letter-spacing: -0.2px;
@@ -130,7 +151,7 @@ header {
             }
         }
 
-        & > .circle {
+        &>.circle {
             opacity: 1;
             transition: all 638ms;
             z-index: 1;
@@ -138,7 +159,7 @@ header {
             animation: beat 2s ease-in-out infinite;
         }
 
-        & a > img {
+        & a>img {
             margin-top: 0.25em;
             border-radius: 1px;
             filter: brightness(0.8);
@@ -154,23 +175,23 @@ header {
             cursor: auto;
             box-shadow: 0 0 500px 750px rgba(255, 255, 255, 1);
 
-            & > span {
-                text-shadow: var(--light-text-shadow);
+            &>span {
+                font-size: medium;
             }
 
-            & > ul {
+            &>ul {
                 opacity: 1;
 
-                & > a {
+                &>a {
                     visibility: visible;
                 }
             }
 
-            & ~ .dynamic-header-circle {
+            &~.dynamic-header-circle {
                 opacity: 0;
                 transform: translateX(-100px);
 
-                & > img {
+                &>img {
                     z-index: -10;
                     transform: scale(0.1);
                 }
@@ -185,7 +206,7 @@ header {
                 animation-name: none;
             }
 
-            & a > img {
+            & a>img {
                 height: 75px;
                 width: 75px;
                 border-radius: 5px;
@@ -214,7 +235,8 @@ section.hero {
     flex-direction: column;
     position: relative;
     padding-inline: 5em;
-    height: calc(100dvh - 126px); /* header's height */
+    height: calc(100dvh - 126px);
+    /* header's height */
 }
 
 section#team {
@@ -227,7 +249,8 @@ section#team {
     text-wrap: pretty;
 
     width: 100vw;
-    height: calc(100dvh - 126px); /* This is just a magic numer */
+    height: calc(100dvh - 126px);
+    /* This is just a magic numer */
 
     padding-inline: 150px;
 
@@ -254,6 +277,7 @@ section#team {
         font-weight: 600;
     }
 }
+
 section#projects {
     scroll-margin-top: 0vh;
     display: flex;
@@ -271,7 +295,7 @@ section#projects {
         font-size: clamp(28px, 5vw, 48px);
     }
 
-    & > p {
+    &>p {
         margin-top: -1em;
         color: var(--secondary-color);
     }
@@ -350,7 +374,8 @@ section#projects {
     height: 120px;
     mix-blend-mode: darken;
     transition: transform 0.3s ease;
-    transform-origin: center; /* Merkezden büyüme için */
+    transform-origin: center;
+    /* Merkezden büyüme için */
 }
 
 /* Resimlere img etiketinde aynı blend mode özelliğini ekliyoruz */
@@ -365,29 +390,36 @@ section#projects {
 .image-circle.circle1 {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.5); /* Başlangıçta merkezde ve küçük */
-    animation: moveToCircle1 1s ease forwards, float 10s infinite ease-in-out; /* İlk animasyon + hareket */
+    transform: translate(-50%, -50%) scale(0.5);
+    /* Başlangıçta merkezde ve küçük */
+    animation: moveToCircle1 1s ease forwards, float 10s infinite ease-in-out;
+    /* İlk animasyon + hareket */
 
     &:hover {
-        transform: translate(-50%, -50%) scale(1.1); /* Hoverda büyüme merkezden */
+        transform: translate(-50%, -50%) scale(1.1);
+        /* Hoverda büyüme merkezden */
     }
 }
 
 .image-circle.circle2 {
     top: 50%;
     right: 50%;
-    transform: translate(-50%, -50%) scale(0.2); /* Start at center, small */
+    transform: translate(-50%, -50%) scale(0.2);
+    /* Start at center, small */
     animation: moveToCircle2 1s ease forwards, float 8s infinite ease-in-out;
 }
 
 .image-circle.circle3 {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.5); /* Başlangıçta merkezde ve küçük */
-    animation: moveToCircle3 1s ease forwards, float 6s infinite ease-in-out; /* İlk animasyon + hareket */
+    transform: translate(-50%, -50%) scale(0.5);
+    /* Başlangıçta merkezde ve küçük */
+    animation: moveToCircle3 1s ease forwards, float 6s infinite ease-in-out;
+    /* İlk animasyon + hareket */
 
     &:hover {
-        transform: translateX(-50%) scale(1.1); /* Hoverda büyüme */
+        transform: translateX(-50%) scale(1.1);
+        /* Hoverda büyüme */
     }
 }
 
@@ -397,13 +429,16 @@ section#projects {
         opacity: 0;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(0.5); /* Start at center, small */
+        transform: translate(-50%, -50%) scale(0.5);
+        /* Start at center, small */
     }
+
     to {
         opacity: 1;
         top: 10%;
         left: 5%;
-        transform: translate(0, 0) scale(1); /* Move to final position and size */
+        transform: translate(0, 0) scale(1);
+        /* Move to final position and size */
     }
 }
 
@@ -412,8 +447,10 @@ section#projects {
         opacity: 0;
         top: 50%;
         right: 50%;
-        transform: translate(-50%, -50%) scale(0.5); /* Start at center, small */
+        transform: translate(-50%, -50%) scale(0.5);
+        /* Start at center, small */
     }
+
     to {
         opacity: 1;
         top: 40%;
@@ -426,24 +463,30 @@ section#projects {
         opacity: 0;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(0.5); /* Start at center, small */
+        transform: translate(-50%, -50%) scale(0.5);
+        /* Start at center, small */
     }
+
     to {
         opacity: 1;
         top: 70%;
         left: 50%;
-        transform: translateX(-50%) scale(1); /* Move to final position and size */
+        transform: translateX(-50%) scale(1);
+        /* Move to final position and size */
     }
 }
 
 /* Floating effect animation */
 @keyframes float {
+
     0%,
     100% {
         transform: translateY(0);
     }
+
     50% {
-        transform: translateY(-20px); /* Move up slightly */
+        transform: translateY(-20px);
+        /* Move up slightly */
     }
 }
 
@@ -485,14 +528,14 @@ section#projects {
     flex-direction: column;
     row-gap: 1em;
 
-    & > h1 {
+    &>h1 {
         font-size: 10em;
         letter-spacing: 1.2px;
         font-weight: 500;
         font-variation-settings: "wdth" 50;
     }
 
-    & > p {
+    &>p {
         font-size: 1.5em;
         font-weight: 300;
         letter-spacing: 0.5px;
@@ -504,7 +547,8 @@ section#projects {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 50vw; /* Adjust for responsiveness */
+    width: 50vw;
+    /* Adjust for responsiveness */
     min-height: 10pxs;
     z-index: 10;
     display: block;
@@ -567,16 +611,22 @@ section#projects {
 }
 
 @keyframes big {
+
     0%,
     30%,
     100% {
-        font-size: large; /* Normal size */
-        font-weight: 700; /* Normal state */
+        font-size: large;
+        /* Normal size */
+        font-weight: 700;
+        /* Normal state */
     }
+
     40%,
     90% {
-        font-size: xx-large; /* Large size */
-        font-weight: 300; /* Thin text */
+        font-size: xx-large;
+        /* Large size */
+        font-weight: 300;
+        /* Thin text */
     }
 }
 
@@ -584,40 +634,51 @@ section#projects {
     0.00% {
         transform: scale(0);
     }
+
     10.16% {
         transform: scale(1.4106);
     }
+
     21.39% {
         transform: scale(0.8391);
     }
+
     32.62% {
         transform: scale(1.0631);
     }
+
     43.85% {
         transform: scale(0.9753);
     }
+
     55.08% {
         transform: scale(1.0097);
     }
+
     66.31% {
         transform: scale(0.9962);
     }
+
     77.54% {
         transform: scale(1.0015);
     }
+
     88.77% {
         transform: scale(0.9994);
     }
+
     100.00% {
         transform: scale(1.0002);
     }
 }
 
 @keyframes beat {
+
     0%,
     100% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
@@ -682,7 +743,8 @@ section#projects {
     }
 
     .project {
-        width: 100%; /* Full-width on smaller screens */
+        width: 100%;
+        /* Full-width on smaller screens */
         height: 300px;
     }
 }
@@ -698,7 +760,9 @@ section#projects {
     }
 
     .project {
-        height: 250px; /* Adjusted height for mobile */
+        height: 250px;
+
+        /* Adjusted height for mobile */
         p {
             font-size: large;
         }
