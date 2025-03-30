@@ -1,0 +1,212 @@
+*,
+*::before,
+*::after {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("../../assets/images/player-background.png") no-repeat
+        center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    letter-spacing: -2%;
+    color: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    gap: 28px;
+}
+
+nav {
+    border-radius: 100px;
+    min-width: fit-content;
+
+    & > ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        column-gap: 10px;
+        padding: 10px;
+
+        & > li {
+            margin: 10px 0px;
+
+            &.selected-tab {
+                background-color: rgba(255, 255, 255, 0.3);
+                padding: 10px 15px;
+                border-radius: 100px;
+            }
+
+            & > img {
+                aspect-ratio: 1;
+            }
+        }
+    }
+}
+
+section {
+    position: relative;
+    overflow: hidden;
+    height: 580px;
+
+    min-width: 400px;
+    width: 1030px;
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    border-radius: 46px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0px;
+        background: rgb(255, 255, 255);
+        mask-image: url("../../assets/images/Window.png");
+        mask-size: 100% 100%;
+        mask-position: center;
+        mask-composite: add;
+        padding: 1px;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    & > div.nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        border-bottom: 0.25px solid rgb(255, 255, 255, 0.1);
+
+        & > img {
+            border-radius: 100px;
+        }
+    }
+
+    & div.list-holders {
+        padding: 20px;
+        gap: 20px;
+        display: flex;
+
+        & div.card {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 5px;
+
+            & > img {
+                height: 180px;
+                aspect-ratio: 1;
+                border-radius: 5px;
+                box-shadow: 0px 8px 6px 0px rgba(0, 0, 0, 0.1);
+                margin: 0.5em;
+            }
+
+            &.album-card {
+                width: 180px;
+                height: 180px;
+            }
+
+            & span.card-title {
+                color: #fff;
+                margin-inline: 0.5em;
+            }
+
+            & span.card-composer {
+                color: #dfdfdf8e;
+                margin-inline: 0.5em;
+            }
+        }
+    }
+}
+
+.glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0px -1px 1px 0px rgba(255, 255, 255, 0.1),
+        inset 0px -1px 1px 0px rgba(255, 255, 255, 0.1),
+        0px 8px 6px 0px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+}
+
+div.player {
+    position: absolute;
+    bottom: 0;
+    left: calc(50% + 28px);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.05)
+    );
+    border-radius: 40px;
+    padding: 10px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    gap: 12px;
+    margin-inline: 16px 23px;
+    margin-block: 12px;
+
+    & > button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        margin-inline: 12px;
+    }
+
+    & > img.cover {
+        width: 38px;
+        height: 38px;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+
+    & > div.info {
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        max-width: 740px;
+        min-width: 200px;
+        padding: 4px 6px;
+        border-radius: 8px;
+        background-color: #0000008e;
+
+        & span#videoTitle {
+            font-weight: 300;
+            font-size: 15px;
+        }
+
+        & span#videoArtist {
+            font-size: 13px;
+            opacity: 0.75;
+        }
+    }
+}
+
+#player {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+#playPauseIcon {
+    width: 18px;
+}
