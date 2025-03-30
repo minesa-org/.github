@@ -27,8 +27,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    margin-inline: 80px;
+    margin: 30px;
     gap: 28px;
 }
 
@@ -63,7 +62,9 @@ section {
     position: relative;
     overflow: hidden;
     height: 580px;
-    max-width: 1030px;
+
+    min-width: 400px;
+    width: 1030px;
     background-color: transparent;
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(100px);
@@ -106,44 +107,12 @@ section {
             align-items: start;
             gap: 5px;
 
-            & div.card-img {
-                min-height: 180px;
-                width: 180px;
-                background-color: black; /* placeholder, whatever happens */
+            & > img {
+                height: 180px;
+                aspect-ratio: 1;
                 border-radius: 5px;
-                padding: 10px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                &[data-genre="jazz"] {
-                    background-color: rgb(93, 52, 52);
-                }
-
-                &[data-genre="rock"] {
-                    background-color: rgb(44, 44, 72);
-                }
-
-                &[data-genre="electronic"] {
-                    background-color: rgb(81, 69, 105);
-                }
-
-                &[data-genre="r&b"] {
-                    background-color: rgb(100, 46, 46);
-                }
-
-                & span.card-tag {
-                    color: rgba(171, 126, 126, 0.96);
-                    font-stretch: expanded;
-                    align-self: flex-end;
-                }
-
-                & span.card-title {
-                    color: rgb(255, 255, 255);
-                    font-size: 2.9em;
-                    font-stretch: ultra-condensed;
-                    text-transform: uppercase;
-                }
+                box-shadow: 0px 8px 6px 0px rgba(0, 0, 0, 0.1);
+                margin: 0.5em;
             }
 
             &.album-card {
@@ -153,10 +122,12 @@ section {
 
             & span.card-title {
                 color: #fff;
+                margin-inline: 0.5em;
             }
 
             & span.card-composer {
                 color: #dfdfdf8e;
+                margin-inline: 0.5em;
             }
         }
     }
@@ -169,4 +140,73 @@ section {
         0px 8px 6px 0px rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(100px);
+}
+
+div.player {
+    position: absolute;
+    bottom: 0;
+    left: calc(50% + 28px);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.05)
+    );
+    border-radius: 40px;
+    padding: 10px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    gap: 12px;
+    margin-inline: 16px 23px;
+    margin-block: 12px;
+
+    & > button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        margin-inline: 12px;
+    }
+
+    & > img.cover {
+        width: 38px;
+        height: 38px;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+
+    & > div.info {
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        max-width: 740px;
+        min-width: 200px;
+        padding: 4px 6px;
+        border-radius: 8px;
+        background-color: #0000008e;
+
+        & span#videoTitle {
+            font-weight: 300;
+            font-size: 15px;
+        }
+
+        & span#videoArtist {
+            font-size: 13px;
+            opacity: 0.75;
+        }
+    }
+}
+
+#player {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+#playPauseIcon {
+    width: 18px;
 }
