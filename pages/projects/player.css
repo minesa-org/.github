@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("../../assets/images/player-background.png") no-repeat
+        center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    letter-spacing: -2%;
+    color: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-inline: 80px;
+    gap: 28px;
+}
+
+nav {
+    border-radius: 100px;
+    min-width: fit-content;
+
+    & > ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        column-gap: 10px;
+        padding: 10px;
+
+        & > li {
+            margin: 10px 0px;
+
+            &.selected-tab {
+                background-color: rgba(255, 255, 255, 0.3);
+                padding: 10px 15px;
+                border-radius: 100px;
+            }
+
+            & > img {
+                aspect-ratio: 1;
+            }
+        }
+    }
+}
+
+section {
+    position: relative;
+    overflow: hidden;
+    height: 580px;
+    max-width: 1030px;
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    border-radius: 46px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0px;
+        background: rgb(255, 255, 255);
+        mask-image: url("../../assets/images/Window.png");
+        mask-size: 100% 100%;
+        mask-position: center;
+        mask-composite: add;
+        padding: 1px;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    & > div.nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        border-bottom: 0.25px solid rgb(255, 255, 255, 0.1);
+
+        & > img {
+            border-radius: 100px;
+        }
+    }
+
+    & div.list-holders {
+        padding: 20px;
+        gap: 20px;
+        display: flex;
+
+        & div.card {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 5px;
+
+            & div.card-img {
+                min-height: 180px;
+                width: 180px;
+                background-color: black; /* placeholder, whatever happens */
+                border-radius: 5px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                &[data-genre="jazz"] {
+                    background-color: rgb(93, 52, 52);
+                }
+
+                &[data-genre="rock"] {
+                    background-color: rgb(44, 44, 72);
+                }
+
+                &[data-genre="electronic"] {
+                    background-color: rgb(81, 69, 105);
+                }
+
+                &[data-genre="r&b"] {
+                    background-color: rgb(100, 46, 46);
+                }
+
+                & span.card-tag {
+                    color: rgba(171, 126, 126, 0.96);
+                    font-stretch: expanded;
+                    align-self: flex-end;
+                }
+
+                & span.card-title {
+                    color: rgb(255, 255, 255);
+                    font-size: 2.9em;
+                    font-stretch: ultra-condensed;
+                    text-transform: uppercase;
+                }
+            }
+
+            &.album-card {
+                width: 180px;
+                height: 180px;
+            }
+
+            & span.card-title {
+                color: #fff;
+            }
+
+            & span.card-composer {
+                color: #dfdfdf8e;
+            }
+        }
+    }
+}
+
+.glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0px -1px 1px 0px rgba(255, 255, 255, 0.1),
+        inset 0px -1px 1px 0px rgba(255, 255, 255, 0.1),
+        0px 8px 6px 0px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+}
