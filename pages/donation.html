@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="theme-color"
-            content="rgb(0, 0, 0)" />
+        <head>
+            <meta charset="UTF-8" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0" />
+            <meta
+                name="theme-color"
+                content="rgb(0, 0, 0)" />
 
-        <title>[home] minesa</title>
-        <link
-            rel="stylesheet"
-            href="style.css" />
-        <script
-            src="script.js"
-            async></script>
+            <title>[team] - minesa</title>
+            <link
+                rel="stylesheet"
+                href="../style.css" />
+            <script
+                src="./script.js"
+                async></script>
+        </head>
     </head>
-
     <body>
         <header>
             <h1>[minesa]</h1>
             <nav>
                 <a
-                    class="home active"
-                    href="index.html">
+                    class="home"
+                    href="../index.html">
                     <svg
                         width="22"
                         height="18"
@@ -39,7 +40,7 @@
                 </a>
                 <a
                     class="team"
-                    href="./pages/team.html">
+                    href="team.html">
                     <svg
                         width="24"
                         height="16"
@@ -54,7 +55,7 @@
                 </a>
                 <a
                     class="projects"
-                    href="./pages/projects.html">
+                    href="projects.html">
                     <svg
                         width="24"
                         height="16"
@@ -69,8 +70,8 @@
                 </a>
 
                 <a
-                    class="donation"
-                    href="./pages/donation.html">
+                    class="donation active"
+                    href="donation.html">
                     <svg
                         width="18"
                         height="17"
@@ -85,160 +86,5 @@
                 </a>
             </nav>
         </header>
-        <main>
-            <section>
-                <div class="discord-community">
-                    <div class="title">
-                        <img
-                            class="title-image"
-                            src="./assets/images/Discord.webp"
-                            alt="Discord logo with notification icon" />
-                        <div class="title-text-container">
-                            <h2>
-                                <span>Invited to Community</span>
-                                <svg
-                                    width="8"
-                                    height="12"
-                                    viewBox="0 0 8 12"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M7.06885 5.91699C7.06885 6.02702 7.04769 6.12858 7.00537 6.22168C6.96305 6.31478 6.89958 6.40365 6.81494 6.48828L1.87012 11.3252C1.73047 11.4691 1.55697 11.541 1.34961 11.541C1.21419 11.541 1.08936 11.5072 0.975098 11.4395C0.86084 11.376 0.769857 11.2871 0.702148 11.1729C0.638672 11.0628 0.606934 10.9401 0.606934 10.8047C0.606934 10.6016 0.683105 10.4217 0.835449 10.2651L5.2915 5.91699L0.835449 1.56885C0.683105 1.41227 0.606934 1.23454 0.606934 1.03564C0.606934 0.895996 0.638672 0.771159 0.702148 0.661133C0.769857 0.551107 0.86084 0.464355 0.975098 0.400879C1.08936 0.333171 1.21419 0.299316 1.34961 0.299316C1.55697 0.299316 1.73047 0.369141 1.87012 0.508789L6.81494 5.3457C6.89958 5.43034 6.96305 5.51921 7.00537 5.6123C7.04769 5.7054 7.06885 5.80697 7.06885 5.91699Z"
-                                        fill="white"
-                                        fill-opacity="0.7" />
-                                </svg>
-                            </h2>
-                            <span>Neo invited you </span>
-                        </div>
-                    </div>
-                    <img
-                        src="./assets/images/People.webp"
-                        width="260.76"
-                        height="134"
-                        alt="People" />
-                    <div class="footer-text-container">
-                        <span>
-                            Meet with other developers or non-developers people.
-                        </span>
-                        <a href="https://discord.gg/minesa">
-                            <svg
-                                width="18"
-                                height="19"
-                                viewBox="0 0 18 19"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M8.9917 18.2725C7.78532 18.2725 6.65088 18.0428 5.58838 17.5835C4.53141 17.1297 3.60173 16.5016 2.79932 15.6992C1.99691 14.8968 1.36605 13.9671 0.906738 12.9102C0.452962 11.8477 0.226074 10.7132 0.226074 9.50684C0.226074 8.29492 0.452962 7.16048 0.906738 6.10352C1.36605 5.04102 1.99691 4.10856 2.79932 3.30615C3.60173 2.49821 4.53141 1.87012 5.58838 1.42188C6.65088 0.968099 7.78532 0.741211 8.9917 0.741211C10.2036 0.741211 11.3381 0.968099 12.395 1.42188C13.4575 1.87012 14.39 2.49821 15.1924 3.30615C15.9948 4.10856 16.6229 5.04102 17.0767 6.10352C17.536 7.16048 17.7656 8.29492 17.7656 9.50684C17.7656 10.7132 17.536 11.8477 17.0767 12.9102C16.6229 13.9671 15.9948 14.8968 15.1924 15.6992C14.39 16.5016 13.4575 17.1297 12.395 17.5835C11.3381 18.0428 10.2036 18.2725 8.9917 18.2725ZM8.9917 16.0894C9.90479 16.0894 10.757 15.9178 11.5483 15.5747C12.3452 15.2371 13.0452 14.7668 13.6484 14.1636C14.2516 13.5549 14.7248 12.8548 15.0679 12.0635C15.411 11.2666 15.5825 10.4144 15.5825 9.50684C15.5825 8.59375 15.411 7.73877 15.0679 6.94189C14.7248 6.14502 14.2516 5.44775 13.6484 4.8501C13.0452 4.24691 12.3452 3.77653 11.5483 3.43896C10.757 3.09587 9.90479 2.92432 8.9917 2.92432C8.08415 2.92432 7.23193 3.09587 6.43506 3.43896C5.64372 3.77653 4.94368 4.24691 4.33496 4.8501C3.73177 5.44775 3.25863 6.14502 2.91553 6.94189C2.57796 7.73877 2.40918 8.59375 2.40918 9.50684C2.40918 10.4144 2.57796 11.2666 2.91553 12.0635C3.25863 12.8548 3.73177 13.5549 4.33496 14.1636C4.94368 14.7668 5.64372 15.2371 6.43506 15.5747C7.23193 15.9178 8.08415 16.0894 8.9917 16.0894ZM8.12012 13.458C7.94857 13.458 7.79085 13.4193 7.64697 13.3418C7.50863 13.2588 7.37581 13.1453 7.24854 13.0015L5.39746 10.7769C5.22591 10.5666 5.14014 10.3535 5.14014 10.1377C5.14014 9.89974 5.22591 9.69499 5.39746 9.52344C5.56901 9.35189 5.77376 9.26611 6.01172 9.26611C6.1556 9.26611 6.28288 9.29655 6.39355 9.35742C6.50977 9.41276 6.62044 9.50684 6.72559 9.63965L8.10352 11.3413L11.0835 6.54346C11.2882 6.21143 11.5456 6.04541 11.8555 6.04541C12.0879 6.04541 12.2954 6.12288 12.478 6.27783C12.6606 6.42725 12.752 6.6237 12.752 6.86719C12.752 6.9668 12.7326 7.06917 12.6938 7.17432C12.6551 7.27946 12.6025 7.38184 12.5361 7.48145L8.9668 12.9849C8.76204 13.3003 8.47982 13.458 8.12012 13.458Z"
-                                    fill="#34C759" />
-                            </svg>
-                            <span>Accept</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="play-track">
-                    <div class="title">
-                        <img
-                            class="title-image"
-                            src="./assets/images/Play.webp"
-                            alt="Play Icon" />
-                        <div class="title-text-container">
-                            <h2>
-                                <span>Play</span>
-                                <svg
-                                    width="8"
-                                    height="12"
-                                    viewBox="0 0 8 12"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M7.06885 5.91699C7.06885 6.02702 7.04769 6.12858 7.00537 6.22168C6.96305 6.31478 6.89958 6.40365 6.81494 6.48828L1.87012 11.3252C1.73047 11.4691 1.55697 11.541 1.34961 11.541C1.21419 11.541 1.08936 11.5072 0.975098 11.4395C0.86084 11.376 0.769857 11.2871 0.702148 11.1729C0.638672 11.0628 0.606934 10.9401 0.606934 10.8047C0.606934 10.6016 0.683105 10.4217 0.835449 10.2651L5.2915 5.91699L0.835449 1.56885C0.683105 1.41227 0.606934 1.23454 0.606934 1.03564C0.606934 0.895996 0.638672 0.771159 0.702148 0.661133C0.769857 0.551107 0.86084 0.464355 0.975098 0.400879C1.08936 0.333171 1.21419 0.299316 1.34961 0.299316C1.55697 0.299316 1.73047 0.369141 1.87012 0.508789L6.81494 5.3457C6.89958 5.43034 6.96305 5.51921 7.00537 5.6123C7.04769 5.7054 7.06885 5.80697 7.06885 5.91699Z"
-                                        fill="white"
-                                        fill-opacity="0.7" />
-                                </svg>
-                            </h2>
-                            <span>Listen with Neo</span>
-                        </div>
-                    </div>
-                    <div class="footer-text-container">
-                        <div>
-                            <h4>Darned</h4>
-                            <span>by Neodevils</span>
-                        </div>
-                        <button onclick="playTrack()">Play</button>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="team-container">
-                    <div class="title">
-                        <img
-                            class="title-image"
-                            src="./assets/images/Team.webp"
-                            alt="Discord logo with notification icon" />
-                        <div class="title-text-container">
-                            <h2>
-                                <span>Meet with Team</span>
-                                <svg
-                                    width="8"
-                                    height="12"
-                                    viewBox="0 0 8 12"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M7.06885 5.91699C7.06885 6.02702 7.04769 6.12858 7.00537 6.22168C6.96305 6.31478 6.89958 6.40365 6.81494 6.48828L1.87012 11.3252C1.73047 11.4691 1.55697 11.541 1.34961 11.541C1.21419 11.541 1.08936 11.5072 0.975098 11.4395C0.86084 11.376 0.769857 11.2871 0.702148 11.1729C0.638672 11.0628 0.606934 10.9401 0.606934 10.8047C0.606934 10.6016 0.683105 10.4217 0.835449 10.2651L5.2915 5.91699L0.835449 1.56885C0.683105 1.41227 0.606934 1.23454 0.606934 1.03564C0.606934 0.895996 0.638672 0.771159 0.702148 0.661133C0.769857 0.551107 0.86084 0.464355 0.975098 0.400879C1.08936 0.333171 1.21419 0.299316 1.34961 0.299316C1.55697 0.299316 1.73047 0.369141 1.87012 0.508789L6.81494 5.3457C6.89958 5.43034 6.96305 5.51921 7.00537 5.6123C7.04769 5.7054 7.06885 5.80697 7.06885 5.91699Z"
-                                        fill="white"
-                                        fill-opacity="0.7" />
-                                </svg>
-                            </h2>
-                            <span>Who wouldn't want to know us?</span>
-                        </div>
-                    </div>
-                    <div class="team-member-wrapper">
-                        <div class="team-member">
-                            <img
-                                width="50"
-                                height="50"
-                                src="./assets/images/mica.webp"
-                                alt="mica" />
-
-                            <div class="footer-text-container">
-                                <div>
-                                    <h4>Mica</h4>
-                                    <span>Artist</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-member">
-                            <img
-                                width="50"
-                                height="50"
-                                src="./assets/images/neo.webp"
-                                alt="neo" />
-
-                            <div class="footer-text-container">
-                                <div>
-                                    <h4>Neo</h4>
-                                    <span>Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-member">
-                            <img
-                                width="50"
-                                height="50"
-                                src="./assets/images/saku.webp"
-                                alt="saku" />
-
-                            <div class="footer-text-container">
-                                <div>
-                                    <h4>Saku</h4>
-                                    <span>Writer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
     </body>
 </html>
