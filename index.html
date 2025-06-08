@@ -128,21 +128,6 @@
                 font-family: sans-serif;
             }
 
-            #__framer-badge-container {
-                position: fixed;
-                bottom: 0;
-                padding: 20px;
-                width: 100%;
-                display: flex;
-                justify-content: right;
-                pointer-events: none;
-                z-index: 314159;
-            }
-
-            .__framer-badge {
-                pointer-events: auto;
-            }
-
             @font-face {
                 font-family: Geist;
                 font-style: normal;
@@ -7926,7 +7911,6 @@
             })();
         </script>
 
-        <div id="__framer-badge-container"></div>
         <script>
             var animator = (() => {
                 var k = (e, t, r) => (r > t ? t : r < e ? e : r);
