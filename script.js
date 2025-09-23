@@ -503,6 +503,7 @@ const addClientHoverEffect = (clientCard) => {
 const animateHeart = () => {
 	const heart = document.querySelector(".heart");
 	if (heart) {
+		// First phase: Enter and grow
 		gsap.fromTo(
 			heart,
 			{
@@ -513,19 +514,23 @@ const animateHeart = () => {
 				rotation: -15,
 			},
 			{
-				x: 100,
-				y: -150,
-				scale: 1.2,
+				x: 20,
+				y: 0,
+				scale: 1,
 				opacity: 1,
 				rotation: 0,
-				duration: 2,
-				ease: "back.out(1.7)",
+				duration: 1,
+				ease: "power2.out",
 				onComplete: () => {
 					gsap.to(heart, {
-						opacity: 0,
-						scale: 0.8,
-						duration: 0.5,
-						ease: "power2.in",
+						x: 20,
+						y: -200,
+						scale: 1.5,
+						opacity: 1,
+						rotation: 0,
+						delay: 2,
+						duration: 2,
+						ease: "back.out(1.1)",
 					});
 				},
 			},
