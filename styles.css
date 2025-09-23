@@ -46,8 +46,7 @@ body {
 	color: var(--color-text);
 	background-color: var(--color-background);
 	padding-bottom: 60px;
-	overflow-x: hidden; /* Prevent horizontal scroll from animations */
-	/* Initial state for page transitions */
+	overflow-x: hidden;
 }
 
 img,
@@ -338,6 +337,10 @@ nav {
 	opacity: 0;
 	backdrop-filter: blur(10px);
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+	@media screen and (max-width: 768px) {
+		bottom: -5%;
+	}
 }
 
 nav a {
