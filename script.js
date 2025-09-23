@@ -3,17 +3,17 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 // Animation configuration with spring physics
 const springConfig = {
-	duration: 1.2,
+	duration: 0.7,
 	ease: "back.out(1.7)",
 };
 
 const bounceConfig = {
-	duration: 0.8,
+	duration: 0.5,
 	ease: "elastic.out(1, 0.3)",
 };
 
 const smoothConfig = {
-	duration: 0.6,
+	duration: 0.4,
 	ease: "power2.out",
 };
 
@@ -61,7 +61,7 @@ const AnimationUtils = {
 	rotateFloat: (element, intensity = 1) => {
 		gsap.to(element, {
 			rotation: `+=${5 * intensity}`,
-			duration: 3 + Math.random(),
+			duration: 2 + Math.random(),
 			ease: "sine.inOut",
 			yoyo: true,
 			repeat: -1,
@@ -78,7 +78,7 @@ const AnimationUtils = {
 				// Subtle effect for navigation items
 				gsap.to(element, {
 					y: -2,
-					duration: 0.3,
+					duration: 0.2,
 					ease: "power2.out",
 				});
 			} else if (isPrimaryButton) {
@@ -86,7 +86,7 @@ const AnimationUtils = {
 				gsap.to(element, {
 					scale: 1.02,
 					y: -3,
-					duration: 0.4,
+					duration: 0.25,
 					ease: "power2.out",
 				});
 			} else {
@@ -94,7 +94,7 @@ const AnimationUtils = {
 				gsap.to(element, {
 					scale: 1.03,
 					y: -3,
-					duration: 0.3,
+					duration: 0.2,
 					ease: "power2.out",
 				});
 			}
@@ -104,7 +104,7 @@ const AnimationUtils = {
 			gsap.to(element, {
 				scale: 1,
 				y: 0,
-				duration: 0.3,
+				duration: 0.2,
 				ease: "power2.out",
 			});
 		});
@@ -262,7 +262,7 @@ const PageAnimations = {
 			discordButton.addEventListener("mouseenter", () => {
 				gsap.to(discordButton, {
 					y: -2,
-					duration: 0.3,
+					duration: 0.2,
 					ease: "power2.out",
 				});
 			});
@@ -270,7 +270,7 @@ const PageAnimations = {
 			discordButton.addEventListener("mouseleave", () => {
 				gsap.to(discordButton, {
 					y: 0,
-					duration: 0.3,
+					duration: 0.2,
 					ease: "power2.out",
 				});
 			});
@@ -440,7 +440,7 @@ const addProjectHoverEffect = (projectCard) => {
 				gsap.to(element, {
 					scale: 1.02,
 					delay,
-					duration: 0.3,
+					duration: 0.2,
 					ease: "power2.out",
 				});
 			}
@@ -454,7 +454,7 @@ const addProjectHoverEffect = (projectCard) => {
 				gsap.to(element, {
 					scale: 1,
 					delay: delay * 0.5,
-					duration: 0.3,
+					duration: 0.2,
 					ease: "power2.out",
 				});
 			}
@@ -477,7 +477,7 @@ const addClientHoverEffect = (clientCard) => {
 				gsap.to(element, {
 					scale: 1.05,
 					delay,
-					duration: 0.3,
+					duration: 0.2,
 					ease: "power2.out",
 				});
 			}
@@ -491,7 +491,7 @@ const addClientHoverEffect = (clientCard) => {
 				gsap.to(element, {
 					scale: 1,
 					delay: delay * 0.5,
-					duration: 0.3,
+					duration: 0.2,
 					ease: "power2.out",
 				});
 			}
@@ -519,7 +519,7 @@ const animateHeart = () => {
 				scale: 1,
 				opacity: 1,
 				rotation: 0,
-				duration: 1,
+				duration: 0.7,
 				ease: "power2.out",
 				onComplete: () => {
 					gsap.to(heart, {
@@ -528,8 +528,8 @@ const animateHeart = () => {
 						scale: 1.5,
 						opacity: 1,
 						rotation: 0,
-						delay: 2,
-						duration: 2,
+						delay: 1,
+						duration: 1.2,
 						ease: "back.out(1.1)",
 					});
 				},
@@ -555,13 +555,13 @@ const animateKaeru = () => {
 				scale: 1,
 				opacity: 1,
 				rotation: 0,
-				duration: 1.5,
+				duration: 1,
 				ease: "elastic.out(1, 0.5)",
 				onComplete: () => {
 					// Add subtle floating animation after sticking
 					gsap.to(kaeru, {
 						y: "+=10",
-						duration: 2,
+						duration: 1.5,
 						ease: "sine.inOut",
 						yoyo: true,
 						repeat: -1,
@@ -622,7 +622,7 @@ const initPageTransitions = () => {
 
 			gsap.to(body, {
 				opacity: 0,
-				duration: 0.3,
+				duration: 0.2,
 				ease: "power2.in",
 				onComplete: () => {
 					window.location.href = href;
