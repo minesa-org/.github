@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
@@ -9,39 +10,146 @@
 			http-equiv="X-UA-Compatible"
 			content="ie=edge"
 		/>
+
+		<!-- Primary SEO -->
+		<title>Minesa™ | Projects</title>
 		<meta
 			name="description"
-			content="We are building, something."
+			content="Explore Minesa’s projects — including Kaeru, our Discord moderation & utility bot, and Dungeon Blitz, a demo indie game adventure."
 		/>
 		<meta
-			name="provider"
-			content="Minesa"
+			name="keywords"
+			content="Minesa projects, Kaeru bot, Dungeon Blitz, Minesa creations, Discord bot, indie game"
 		/>
 		<meta
 			name="author"
 			content="Minesa"
 		/>
 		<meta
-			name="keywords"
-			content="Building, something."
+			name="provider"
+			content="Minesa"
 		/>
-		<meta charset="UTF-8" />
+		<link
+			rel="canonical"
+			href="https://minesa-org.github.io/pages/projects.html"
+		/>
+
+		<!-- Open Graph -->
+		<meta
+			property="og:title"
+			content="Minesa™ | Projects"
+		/>
+		<meta
+			property="og:description"
+			content="See what Minesa is building: Kaeru (Discord bot) and Dungeon Blitz demo game."
+		/>
+		<meta
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			property="og:url"
+			content="https://minesa-org.github.io/pages/projects.html"
+		/>
+		<meta
+			property="og:image"
+			content="https://minesa-org.github.io/assets/minesa-image.png"
+		/>
+
+		<!-- Twitter -->
+		<meta
+			name="twitter:card"
+			content="summary_large_image"
+		/>
+		<meta
+			name="twitter:title"
+			content="Minesa™ | Projects"
+		/>
+		<meta
+			name="twitter:description"
+			content="Discover Minesa’s featured projects: Kaeru and Dungeon Blitz demo."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://minesa-org.github.io/assets/minesa-image.png"
+		/>
+
+		<!-- Favicon Pack -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="../assets/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="../assets/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="../assets/favicon-16x16.png"
+		/>
+		<link
+			rel="manifest"
+			href="../assets/site.webmanifest"
+		/>
+		<link
+			rel="shortcut icon"
+			href="../assets/favicon.ico"
+		/>
+
+		<!-- Thumbnail for social (fallback if needed) -->
+		<link
+			rel="image_src"
+			href="../assets/minesa-head.png"
+		/>
+
+		<!-- Styles -->
 		<link
 			rel="stylesheet"
 			href="../styles.css"
 		/>
-		<!-- GSAP Core -->
+
+		<!-- GSAP Core + Plugins -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-		<!-- GSAP ScrollTrigger Plugin -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-		<!-- GSAP TextPlugin for text animations -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+		<!-- Main Script -->
 		<script
 			async
 			type="module"
 			src="../script.js"
 		></script>
-		<title>Minesa™ | Projects</title>
+
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "ItemList",
+				"name": "Minesa Projects",
+				"url": "https://minesa-org.github.io/pages/projects.html",
+				"itemListElement": [
+					{
+						"@type": "CreativeWork",
+						"position": 1,
+						"name": "Kaeru",
+						"description": "Discord moderation & utility bot",
+						"url": "https://minesa-org.github.io/pages/projects.html#kaeru"
+					},
+					{
+						"@type": "CreativeWork",
+						"position": 2,
+						"name": "Dungeon Blitz: Demo",
+						"description": "Dungeon Blitz 'Lost at Sea' demo game",
+						"url": "https://minesa-org.github.io/pages/projects.html#dungeon-blitz"
+					}
+				]
+			}
+		</script>
 	</head>
 	<body>
 		<header>
@@ -163,7 +271,7 @@
 					Home
 				</a>
 				<a
-					href="./projects.html"
+					href=""
 					class="active"
 				>
 					<svg

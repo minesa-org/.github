@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
@@ -9,40 +10,157 @@
 			http-equiv="X-UA-Compatible"
 			content="ie=edge"
 		/>
+
+		<!-- Primary SEO -->
+		<title>Minesa™ | Home</title>
 		<meta
 			name="description"
-			content="We are building, something."
+			content="Minesa is building digital experiences, connecting talent, and bringing your creative ideas to life."
 		/>
 		<meta
-			name="provider"
-			content="Minesa"
+			name="keywords"
+			content="Minesa, creative projects, digital experiences, web design, talent"
 		/>
 		<meta
 			name="author"
 			content="Minesa"
 		/>
 		<meta
-			name="keywords"
-			content="Building, something."
+			name="provider"
+			content="Minesa"
 		/>
-		<meta charset="UTF-8" />
+		<link
+			rel="canonical"
+			href="https://minesa-org.github.io/"
+		/>
+
+		<!-- Open Graph / Social -->
+		<meta
+			property="og:title"
+			content="Minesa™ | Home"
+		/>
+		<meta
+			property="og:description"
+			content="Minesa is building digital experiences, connecting talent, and bringing your creative ideas to life."
+		/>
+		<meta
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			property="og:url"
+			content="https://minesa-org.github.io/"
+		/>
+		<meta
+			property="og:image"
+			content="https://minesa-org.github.io/assets/minesa-image.png"
+		/>
+		<meta
+			property="og:image:width"
+			content="1200"
+		/>
+		<meta
+			property="og:image:height"
+			content="630"
+		/>
+
+		<!-- Twitter -->
+		<meta
+			name="twitter:card"
+			content="summary_large_image"
+		/>
+		<meta
+			name="twitter:title"
+			content="Minesa™ | Home"
+		/>
+		<meta
+			name="twitter:description"
+			content="Minesa is building digital experiences, connecting talent, and bringing your creative ideas to life."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://minesa-org.github.io/assets/minesa-image.png"
+		/>
+
+		<!-- Favicons + App Icons -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png"
+		/>
+		<link
+			rel="manifest"
+			href="/site.webmanifest"
+		/>
+		<link
+			rel="mask-icon"
+			href="/safari-pinned-tab.svg"
+			color="#5bbad5"
+		/>
+		<link
+			rel="shortcut icon"
+			href="/favicon.ico"
+		/>
+
+		<!-- Windows / Edge -->
+		<meta
+			name="msapplication-TileColor"
+			content="#2d89ef"
+		/>
+		<meta
+			name="msapplication-config"
+			content="/browserconfig.xml"
+		/>
+
+		<!-- Theme Color -->
+		<meta
+			name="theme-color"
+			content="#ffffff"
+		/>
+
+		<!-- Styles -->
 		<link
 			rel="stylesheet"
 			href="styles.css"
 		/>
-		<!-- GSAP Core -->
+
+		<!-- GSAP Core + Plugins -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-		<!-- GSAP ScrollTrigger Plugin -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-		<!-- GSAP TextPlugin for text animations -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+		<!-- Main Script -->
 		<script
 			async
 			type="module"
 			src="script.js"
 		></script>
-		<title>Minesa™ | Home</title>
+
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "Minesa",
+				"url": "https://minesa-org.github.io/",
+				"logo": "https://minesa-org.github.io/assets/minesa-head.png",
+				"sameAs": ["https://discord.gg/NdKBg9gFee"]
+			}
+		</script>
 	</head>
+
 	<body>
 		<header>
 			<!-- Minesa logo -->
