@@ -77,6 +77,22 @@ section > ul {
   align-items: center;
 }
 
+header a {
+  border: none !important;
+  color: var(--primary) !important;
+}
+
+header a:hover {
+  border: none !important;
+  background-color: transparent !important;
+  transform: none !important;
+  color: var(--primary) !important;
+}
+
+header a:hover svg path {
+  animation-duration: 0.3s !important;
+}
+
 a {
   display: inline;
   color: var(--primary);
@@ -387,5 +403,25 @@ main {
   nav {
     flex-wrap: wrap;
     gap: 20px;
+  }
+
+  .innerforge-container {
+    margin: 0 30px;
+    width: calc(100% - 60px);
+  }
+
+  .if-team-list span {
+    display: none;
+  }
+
+  .if-team-list {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .innerforge-container {
+    margin: 0 30px;
+    width: calc(100% - 60px);
   }
 }

@@ -121,6 +121,8 @@
 		return Math.random() * (max - min) + min;
 	}
 
+	let isLogoHovered = false;
+
 	function spawnAgent() {
 		const w = window.innerWidth;
 		const h = window.innerHeight;
@@ -139,10 +141,12 @@
 	function stepAgents(dt) {
 		const w = window.innerWidth;
 		const h = window.innerHeight;
+		const speedMultiplier = isLogoHovered ? 4 : 1;
+
 		for (let i = 0; i < agents.length; i++) {
 			const a = agents[i];
 			if (a.pause > 0) {
-				a.pause -= dt;
+				a.pause -= dt * speedMultiplier;
 				if (a.pause <= 0) {
 					a.tx = rand(0, w);
 					a.ty = rand(0, h);
@@ -152,7 +156,7 @@
 			const dx = a.tx - a.x;
 			const dy = a.ty - a.y;
 			const dist = Math.hypot(dx, dy) || 1;
-			const travel = a.speed * (dt / 1000);
+			const travel = a.speed * speedMultiplier * (dt / 1000);
 			if (travel >= dist) {
 				a.x = a.tx;
 				a.y = a.ty;
@@ -167,6 +171,25 @@
 			const row = Math.floor(a.y / CELL_SIZE);
 			showAt(col, row, { agent: true });
 		}
+	}
+
+	function hookLogoHover() {
+		const logoLinks = document.querySelectorAll('header a, .if-logo-link');
+		logoLinks.forEach(link => {
+			link.addEventListener('mouseenter', () => {
+				isLogoHovered = true;
+			});
+			link.addEventListener('mouseleave', () => {
+				isLogoHovered = false;
+			});
+		});
+	}
+
+	// Immediate run if DOM already loaded or wait
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', hookLogoHover);
+	} else {
+		hookLogoHover();
 	}
 
 	for (let i = 0; i < AGENT_COUNT; i++) spawnAgent();
