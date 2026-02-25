@@ -114,7 +114,7 @@
 		});
 	}, 40);
 
-	const AGENT_COUNT = 3;
+	const AGENT_COUNT = 6;
 	const agents = [];
 
 	function rand(min, max) {
@@ -156,7 +156,8 @@
 			if (travel >= dist) {
 				a.x = a.tx;
 				a.y = a.ty;
-				a.pause = rand(300, 1200);
+				a.tx = rand(0, w);
+				a.ty = rand(0, h);
 			} else {
 				a.x += (dx / dist) * travel;
 				a.y += (dy / dist) * travel;
