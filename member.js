@@ -1,9 +1,12 @@
 (function () {
-	const MEMBER_ORDER = ["mica", "neo", "saku"];
+	const MEMBER_ORDER = ["mica", "neo", "saku", "telahair", "ekmek", "tired"];
 	const signatureAssets = {
 		mica: "assets/signatures/Micha%20G..svg",
 		neo: "assets/signatures/%C4%B0brahim%20G..svg",
 		saku: "assets/signatures/Daphne%20R..svg",
+		telahair: "assets/signatures/Arda%20A..svg",
+		ekmek: "assets/signatures/%C3%96mer%20E..svg",
+		tired: "assets/signatures/Iskhak%20W..svg",
 	};
 
 	const refs = {
@@ -28,6 +31,7 @@
 
 	const state = {
 		membersPromise: null,
+		members: null,
 		currentKey: null,
 		isTransitioning: false,
 		stickers: [],
@@ -63,6 +67,10 @@
 		return MEMBER_ORDER.includes(raw) ? raw : "neo";
 	}
 
+	function getMemberNickname(memberKey) {
+		return memberKey.toUpperCase();
+	}
+
 	function setLoadingLabel(message) {
 		if (refs.loadingLabel) refs.loadingLabel.textContent = message;
 	}
@@ -84,7 +92,9 @@
 				if (!response.ok) {
 					throw new Error(`Failed to load member data: ${response.status}`);
 				}
-				return response.json();
+				const members = await response.json();
+				state.members = members;
+				return members;
 			});
 		}
 		return state.membersPromise;
@@ -159,12 +169,22 @@
 		});
 	}
 
-	function buildRouter() {
+	function buildRouter(members = state.members) {
 		if (!refs.router) return;
-		refs.router.innerHTML = MEMBER_ORDER.map(key => {
-			const label = key.toUpperCase();
-			return `<a class="member-route-link" data-member-route="${key}" href="member.html?user=${key}">${label}</a>`;
-		}).join("");
+		if (!members) return;
+		refs.router.innerHTML = MEMBER_ORDER
+			.filter(key => members[key])
+			.map(key => {
+				const member = members[key];
+				const nickname = getMemberNickname(key);
+				return `
+					<a class="member-route-link" data-member-route="${key}" href="member.html?user=${key}">
+						<img class="member-route-avatar" src="${escapeHtml(normalizeAssetPath(member.avatar))}" alt="${escapeHtml(member.name)} avatar" />
+						<span class="member-route-name">${escapeHtml(nickname)}</span>
+					</a>
+				`;
+			})
+			.join("");
 	}
 
 	function updateRouterActive(memberKey) {
@@ -228,7 +248,7 @@
 	function renderSignature(memberKey, member) {
 		const signatureAsset = signatureAssets[memberKey];
 		if (!signatureAsset) return;
-		const signatureClass = memberKey === "neo" ? "signature-light" : "signature-dark";
+		const signatureClass = member.is_dark_mode ? "signature-light" : "signature-dark";
 		refs.signatureWrap.innerHTML = `<img class="signature-asset ${signatureClass}" src="${signatureAsset}" alt="${escapeHtml(member.name)} signature" />`;
 	}
 
@@ -581,7 +601,7 @@
 
 		refs.avatar.src = normalizeAssetPath(member.avatar);
 		refs.avatar.alt = member.name;
-		refs.nameLabel.dataset.text = memberKey;
+		refs.nameLabel.dataset.text = getMemberNickname(memberKey);
 		refs.quote.dataset.text = member.quote;
 		renderSignature(memberKey, member);
 		refs.bio.innerHTML = member.bio.map(paragraph => `<p>${renderInlineHighlights(paragraph)}</p>`).join("");
@@ -665,8 +685,15 @@
 		populateAmbientParticles();
 	});
 
-	buildRouter();
 	bindRouter();
 	showLoading("Loading profile");
-	navigateToMember(getMemberKeyFromLocation(), { replace: true, force: true });
+	loadMembersData()
+		.then(members => {
+			buildRouter(members);
+			return navigateToMember(getMemberKeyFromLocation(), { replace: true, force: true });
+		})
+		.catch(error => {
+			console.error(error);
+			showLoading("Error loading profile");
+		});
 })();

@@ -153,25 +153,84 @@
         gap: 16px;
       }
 
-      .member-route-nav {
-        display: flex;
+      .member-switcher {
+        position: relative;
+        display: inline-flex;
         align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
+      }
+
+      .member-switcher-trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 10px;
+        margin: -8px -10px;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .member-switcher-trigger:focus-visible {
+        outline: 1px solid color-mix(in srgb, var(--theme-text) 30%, transparent);
+        outline-offset: 4px;
+        border-radius: 999px;
+      }
+
+      .member-route-nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        min-width: 220px;
+        padding: 10px;
+        border-radius: 18px;
+        border: 1px solid color-mix(in srgb, var(--theme-text) 14%, transparent);
+        background: color-mix(in srgb, var(--theme-bg) 88%, black 12%);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(10px) scale(0.98);
+        transform-origin: top left;
+        transition:
+          opacity 220ms ease,
+          visibility 220ms ease,
+          transform 220ms ease,
+          border-color 220ms ease,
+          background 220ms ease;
+        z-index: 20;
+      }
+
+      .member-switcher:hover .member-route-nav,
+      .member-switcher:focus-within .member-route-nav {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
       }
 
       .member-route-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
         font-family: var(--font-mono);
         font-size: 11px;
         line-height: 1;
         letter-spacing: 2px;
         text-transform: uppercase;
-        padding: 9px 12px;
-        border-radius: 999px;
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 14px;
         border: 1px solid color-mix(in srgb, var(--theme-text) 14%, transparent);
         color: var(--theme-muted);
         background: color-mix(in srgb, var(--theme-bg) 76%, transparent);
-        backdrop-filter: blur(12px);
+        text-decoration: none;
         transition:
           color 220ms ease,
           background 220ms ease,
@@ -190,6 +249,18 @@
         color: var(--theme-text);
         background: color-mix(in srgb, var(--theme-text) 12%, transparent);
         border-color: color-mix(in srgb, var(--theme-text) 24%, transparent);
+      }
+
+      .member-route-avatar {
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        object-fit: cover;
+        flex: 0 0 auto;
+      }
+
+      .member-route-name {
+        display: inline-block;
       }
 
       body.member-theme main.innerforge-container {
@@ -302,9 +373,26 @@
       }
 
       body.member-theme[data-member='saku'] .member-route-link {
-        color: rgba(27, 27, 27, 0.72);
-        border-color: rgba(27, 27, 27, 0.14);
-        background: rgba(255, 255, 255, 0.18);
+        color: #1b1b1b;
+        border-color: rgba(27, 27, 27, 0.22);
+        background: rgba(255, 246, 206, 0.72);
+      }
+
+      body.member-theme[data-member='saku'] .member-route-nav {
+        color: #1b1b1b;
+      }
+
+      body.member-theme[data-member='saku'] .member-route-nav .member-route-link,
+      body.member-theme[data-member='saku'] .member-route-nav .member-route-link:link,
+      body.member-theme[data-member='saku'] .member-route-nav .member-route-link:visited,
+      body.member-theme[data-member='saku'] .member-route-name {
+        color: #1b1b1b;
+      }
+
+      body.member-theme[data-member='saku'] .member-route-nav {
+        border-color: rgba(27, 27, 27, 0.24);
+        background: rgba(235, 193, 44, 0.92);
+        box-shadow: 0 18px 60px rgba(68, 48, 0, 0.24);
       }
 
       body.member-theme[data-member='saku'] .member-route-link:hover,
@@ -312,6 +400,13 @@
         color: #1b1b1b;
         border-color: rgba(27, 27, 27, 0.22);
         background: rgba(255, 255, 255, 0.3);
+      }
+
+      body.member-theme[data-member='saku'] .member-route-link:hover .member-route-name,
+      body.member-theme[data-member='saku'] .member-route-link.is-active .member-route-name,
+      body.member-theme[data-member='saku'] .member-route-link:hover .member-route-avatar,
+      body.member-theme[data-member='saku'] .member-route-link.is-active .member-route-avatar {
+        color: #1b1b1b;
       }
 
       body.member-theme[data-member='saku'] .member-inline-logo {
@@ -581,6 +676,10 @@
         .member-header {
           align-items: flex-start;
         }
+
+        .member-route-nav {
+          min-width: 190px;
+        }
       }
     </style>
     <script defer src="member.js"></script>
@@ -606,10 +705,14 @@
           </svg>
         </a>
         <span class="if-separator">/</span>
-        <img src="" alt="" class="member-avatar" id="avatar" />
-        <span class="member-name-label" id="name-label"></span>
+        <div class="member-switcher">
+          <button class="member-switcher-trigger" id="member-switcher-trigger" type="button" aria-label="Open member navigation">
+            <img src="" alt="" class="member-avatar" id="avatar" />
+            <span class="member-name-label" id="name-label"></span>
+          </button>
+          <nav class="member-route-nav" id="member-router" aria-label="Member switcher"></nav>
         </div>
-        <nav class="member-route-nav" id="member-router" aria-label="Member switcher"></nav>
+        </div>
       </header>
 
       <div class="signature-container reveal-item" id="signature-wrap"></div>

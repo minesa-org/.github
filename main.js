@@ -10,7 +10,7 @@
 	const restartButtonEl = document.getElementById("game-restart");
 
 	const CELL_SIZE = 10;
-	const CHARGE_MS = 5000;
+	const CHARGE_MS = 3000;
 	const INTRO_MS = 1800;
 	const PLAYER_COLOR = "#ffffff";
 	const RIVAL_COLOR = "var(--link)";
@@ -488,7 +488,12 @@
 		const actualLength = role === "hunter"
 			? Math.max(length + randInt(2, 4), playerLength + 10)
 			: length;
-		const speedBoost = role === "hunter" ? 1.4 : role === "spinner" ? 0.95 : 1.12;
+		const hunterLevelBoost = Math.pow(1.1, Math.max(0, state.level - 1));
+		const speedBoost = role === "hunter"
+			? 1.4 * hunterLevelBoost
+			: role === "spinner"
+				? 0.95
+				: 1.12;
 
 		return {
 			snake: createSnake({

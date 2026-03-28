@@ -78,7 +78,7 @@
     "quote": "Design first. Developer second.",
     "bio": [
       "I am the owner and designer at <img src=\"../assets/member_assets/text_logo_minesa.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Minesa Studios\"> since 2021.",
-      "Now, I am building <img src=\"../assets/member_assets/text_logo_minesa.png\" style=\"height:1em; vertical-align:middle;\" alt=\"mini-interaction\"> for hosting Discord apps that only command matters.",
+      "Now, I am building <img src=\"../assets/mini-interaction.svg\" style=\"height:1em; vertical-align:middle;\" alt=\"mini-interaction\"> for hosting Discord apps that only command matters.",
       "I have designed && coded the website of <img src=\"../assets/member_assets/text_logo_darkvoid.png\" style=\"height:1em; vertical-align:middle;\" alt=\"DarkVoid\"> for the gamers who wants the safest game experience.",
       "Additionally, I've contributed <img src=\"../assets/member_assets/text_logo_dungeon_blitz.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Dungeon Blitz\"> preservation project to make the game have a comeback."
     ],
@@ -154,5 +154,50 @@
         "width": "170px"
       }
     ]
+  },
+  "telahair": {
+    "name": "Arda A.",
+    "avatar": "../assets/Telahair.png",
+    "theme_color": "#0b3012",
+    "muted_text_color": "#5d7662",
+    "is_dark_mode": true,
+    "quote": "From one game to the next.",
+    "bio": [
+      "I am member of <img src=\"../assets/member_assets/text_logo_minesa.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Minesa Studios\"> since 2025.",
+      "I am working as maintainer on <img src=\"../assets/member_assets/text_logo_dungeon_blitz.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Dungeon Blitz\"> preservation project."
+    ],
+    "socials": {},
+    "gallery": [],
+    "stickers": []
+  },
+  "ekmek": {
+    "name": "Ömer E.",
+    "avatar": "../assets/Ekmek.png",
+    "theme_color": "#6a3d16",
+    "muted_text_color": "#9c7e67",
+    "is_dark_mode": true,
+    "quote": "When life hands you lemons, make a zesty code!",
+    "bio": [
+      "I am member of <img src=\"../assets/member_assets/text_logo_minesa.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Minesa Studios\"> since 2025.",
+      "I am working as maintainer on <img src=\"../assets/member_assets/text_logo_dungeon_blitz.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Dungeon Blitz\"> preservation project."
+    ],
+    "socials": {},
+    "gallery": [],
+    "stickers": []
+  },
+  "tired": {
+    "name": "Iskhak W.",
+    "avatar": "../assets/Tired.png",
+    "theme_color": "#5b2017",
+    "muted_text_color": "#8e6a65",
+    "is_dark_mode": true,
+    "quote": "In coding, vibe is key... but I am tired.",
+    "bio": [
+      "I am member of <img src=\"../assets/member_assets/text_logo_minesa.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Minesa Studios\"> since 2025.",
+      "I am working as maintainer on <img src=\"../assets/member_assets/text_logo_dungeon_blitz.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Dungeon Blitz\"> preservation project."
+    ],
+    "socials": {},
+    "gallery": [],
+    "stickers": []
   }
 }
