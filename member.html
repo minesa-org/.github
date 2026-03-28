@@ -48,6 +48,24 @@
         overflow-y: auto;
         overflow-x: hidden;
         padding: 8vh 5vw;
+        position: relative;
+      }
+
+      .member-fire-canvas {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 0;
+        transition: opacity 320ms ease;
+      }
+
+      body.member-theme[data-member='neo'] .member-fire-canvas,
+      body.member-theme[data-member='mica'] .member-fire-canvas,
+      body.member-theme[data-member='saku'] .member-fire-canvas {
+        opacity: 1;
       }
 
       .member-header {
@@ -61,6 +79,8 @@
         display: block;
         height: auto;
         min-height: 0;
+        position: relative;
+        z-index: 2;
       }
 
       .member-avatar {
@@ -371,6 +391,7 @@
     </style>
   </head>
   <body class="member-theme">
+    <canvas class="member-fire-canvas" id="member-fire-canvas" aria-hidden="true"></canvas>
     <div id="loading" style="padding: 20px; font-family: var(--font-mono);">Loading...</div>
 
     <main class="innerforge-container" id="content" style="display: none;">
@@ -447,6 +468,312 @@
           );
       }
 
+      const ambientCanvas = document.getElementById('member-fire-canvas');
+      const ambientCtx = ambientCanvas ? ambientCanvas.getContext('2d') : null;
+      let ambientParticles = [];
+      let ambientSigils = [];
+      let ambientFrame = 0;
+      let ambientLastRender = 0;
+      let ambientRunning = false;
+      let ambientMode = '';
+
+      function resizeAmbientCanvas() {
+        if (!ambientCanvas || !ambientCtx) return;
+        const dpr = Math.min(1.5, window.devicePixelRatio || 1);
+        ambientCanvas.width = Math.floor(window.innerWidth * dpr);
+        ambientCanvas.height = Math.floor(window.innerHeight * dpr);
+        ambientCanvas.style.width = `${window.innerWidth}px`;
+        ambientCanvas.style.height = `${window.innerHeight}px`;
+        ambientCtx.setTransform(1, 0, 0, 1, 0, 0);
+        ambientCtx.scale(dpr, dpr);
+      }
+
+      function createNeoSigil() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const symbolSet = [
+          '⛧',
+          '𖤐',
+          '⛥',
+          '𓃶',
+          '🜏',
+          '☠︎︎',
+          '´ཀ`',
+          '☪︎',
+          '𖤐',
+          '𐦍',
+          '☾',
+          '𖤓',
+          `⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣷⣮⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣻⣿⣿⣿⣿⣿⠂⠀⠀
+⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⠋⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⢸⣧⠁⠀⠀⠀
+⠀⡀⠀⠀⠀⠀⢸⣿⣿⣿⣸⣿⣷⣄⠀⠀
+⠀⠈⠫⠂⠀⠀⠊⣿⢿⣿⡏⣿⠿⠟⠀⠀
+⠀⠀⠀⠀⠱⡀⠈⠁⠀⢝⢷⡸⡇⠀⠀⠀
+⠀⠀⠀⠀⢀⠇⠀⠀⢀⣾⣦⢳⡀⠀⠀⠀
+⠀⠀⠀⢀⠎⠀⢀⣴⣿⣿⣿⡇⣧⠀⠀⠀
+⠀⢀⡔⠁⠀⢠⡟⢻⡻⣿⣿⣿⣌⡀⠀⠀
+⢀⡎⠀⠀⠀⣼⠁⣼⣿⣦⠻⣿⣿⣷⡀⠀
+⢸⠀⠀⠀⠀⡟⢰⣿⣿⡟⠀⠘⢿⣿⣷⡀
+⠈⠳⠦⠴⠞⠀⢸⣿⣿⠁⠀⠀⠀⠹⣿⡧
+⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⢰⣿⡇
+⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⢸⣿⡇
+⠀⠀⠀⠀⠀⡀⢸⣿⠁⠀⠀⠀⠀⢸⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⣿⣆⠀⠀⠀⠀⠀⣿⣧
+⠀⠀⠀⠀⠀⠀⠀⠏⢿⠄⠀⠀⠀⠐⢸⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉`
+        ];
+        const symbol = symbolSet[Math.floor(Math.random() * symbolSet.length)];
+        const isTotem = symbol.includes('\n');
+        const size = isTotem ? 5.6 + Math.random() * 2.4 : 22 + Math.random() * 54;
+        return {
+          kind: isTotem ? 'totem' : 'glyph',
+          symbol,
+          x: width * (0.12 + Math.random() * 0.76),
+          y: height * (0.18 + Math.random() * 0.66),
+          size,
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.0024,
+          driftX: (Math.random() - 0.5) * 0.12,
+          driftY: -(isTotem ? 0.18 + Math.random() * 0.12 : 0.12 + Math.random() * 0.2),
+          life: 0.72 + Math.random() * 0.52,
+          decay: 0.00035 + Math.random() * 0.0008,
+          blur: 0,
+          pulse: Math.random() * Math.PI * 2,
+        };
+      }
+
+      function createSnowParticle() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: 1.4 + Math.random() * 3.6,
+          speedY: 0.35 + Math.random() * 1.15,
+          driftX: (Math.random() - 0.5) * 0.55,
+          swing: Math.random() * Math.PI * 2,
+          alpha: 0.22 + Math.random() * 0.42,
+        };
+      }
+
+      function createFlowerParticle() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: 10 + Math.random() * 12,
+          speedY: 0.26 + Math.random() * 0.88,
+          driftX: (Math.random() - 0.5) * 0.85,
+          rotate: Math.random() * Math.PI * 2,
+          rotateSpeed: (Math.random() - 0.5) * 0.016,
+          swing: Math.random() * Math.PI * 2,
+          alpha: 0.24 + Math.random() * 0.24,
+          hue: 252 + Math.random() * 26,
+        };
+      }
+
+      function populateAmbientParticles() {
+        ambientParticles = [];
+        ambientSigils = [];
+        const count = ambientMode === 'neo'
+          ? 0
+          : ambientMode === 'mica'
+            ? Math.max(28, Math.floor(window.innerWidth / 30))
+            : Math.max(16, Math.floor(window.innerWidth / 48));
+        for (let index = 0; index < count; index += 1) {
+          if (ambientMode === 'mica') {
+            ambientParticles.push(createSnowParticle());
+          } else if (ambientMode === 'saku') {
+            ambientParticles.push(createFlowerParticle());
+          }
+        }
+        if (ambientMode === 'neo') {
+          const sigilCount = Math.max(4, Math.floor(window.innerWidth / 280));
+          for (let index = 0; index < sigilCount; index += 1) {
+            ambientSigils.push(createNeoSigil());
+          }
+        }
+      }
+
+      function drawFlower(ctx, particle) {
+        ctx.save();
+        ctx.translate(particle.x, particle.y);
+        ctx.rotate(particle.rotate);
+        ctx.fillStyle = `hsla(${particle.hue}, 74%, 78%, ${particle.alpha})`;
+        for (let index = 0; index < 5; index += 1) {
+          ctx.rotate((Math.PI * 2) / 5);
+          ctx.beginPath();
+          ctx.ellipse(0, particle.size * 0.34, particle.size * 0.28, particle.size * 0.52, 0, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.fillStyle = `hsla(${particle.hue - 18}, 92%, 92%, ${particle.alpha})`;
+        ctx.beginPath();
+        ctx.arc(0, 0, particle.size * 0.18, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function drawNeoTotem(ctx, sigil, alpha) {
+        const lines = sigil.symbol.split('\n');
+        const lineHeight = sigil.size * 0.92;
+        ctx.font = `${sigil.size}px monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = `rgba(255, 196, 166, ${alpha})`;
+        lines.forEach((line, index) => {
+          const y = (index - (lines.length - 1) / 2) * lineHeight;
+          ctx.fillText(line, 0, y);
+        });
+      }
+
+      function drawNeoSigil(ctx, sigil) {
+        sigil.life -= sigil.decay;
+        sigil.rotation += sigil.rotationSpeed;
+        sigil.x += sigil.driftX + Math.sin((performance.now() * 0.0007) + sigil.pulse) * 0.06;
+        sigil.y += sigil.driftY;
+        sigil.blur = Math.min(4.5, sigil.blur + 0.018);
+
+        if (sigil.life <= 0 || sigil.y < -sigil.size * 2) {
+          return false;
+        }
+
+        const alpha = Math.max(0, sigil.life) * 0.28;
+        ctx.save();
+        ctx.translate(sigil.x, sigil.y);
+        ctx.rotate(sigil.rotation);
+        if (sigil.kind === 'totem') {
+          drawNeoTotem(ctx, sigil, alpha * 0.9);
+        } else {
+          ctx.font = `${sigil.size}px serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = `rgba(255, 196, 166, ${alpha})`;
+          ctx.fillText(sigil.symbol, 0, 0);
+        }
+        ctx.restore();
+        return true;
+      }
+
+      function renderAmbient(now = performance.now()) {
+        if (!ambientCtx || !ambientCanvas || !ambientRunning) return;
+        if (now - ambientLastRender < 33) {
+          ambientFrame = window.requestAnimationFrame(renderAmbient);
+          return;
+        }
+        ambientLastRender = now;
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        ambientCtx.clearRect(0, 0, width, height);
+
+        if (ambientMode === 'neo') {
+          const shadowBlend = ambientCtx.createLinearGradient(0, 0, 0, height);
+          shadowBlend.addColorStop(0, '#1b1b1b');
+          shadowBlend.addColorStop(0.42, 'rgba(27, 27, 27, 0.92)');
+          shadowBlend.addColorStop(0.68, 'rgba(20, 12, 10, 0.48)');
+          shadowBlend.addColorStop(1, 'rgba(8, 3, 2, 0.44)');
+          ambientCtx.fillStyle = shadowBlend;
+          ambientCtx.fillRect(0, 0, width, height);
+
+          const baseGlow = ambientCtx.createLinearGradient(0, height, 0, height * 0.42);
+          baseGlow.addColorStop(0, 'rgba(255, 64, 0, 0.34)');
+          baseGlow.addColorStop(0.34, 'rgba(255, 104, 28, 0.2)');
+          baseGlow.addColorStop(0.72, 'rgba(255, 96, 40, 0.07)');
+          baseGlow.addColorStop(1, 'rgba(255, 140, 60, 0)');
+          ambientCtx.fillStyle = baseGlow;
+          ambientCtx.fillRect(0, 0, width, height);
+
+          const emberBloom = ambientCtx.createRadialGradient(
+            width * 0.5,
+            height * 0.94,
+            0,
+            width * 0.5,
+            height * 0.94,
+            Math.max(width, height) * 0.38
+          );
+          emberBloom.addColorStop(0, 'rgba(255, 128, 54, 0.18)');
+          emberBloom.addColorStop(0.4, 'rgba(255, 86, 24, 0.11)');
+          emberBloom.addColorStop(1, 'rgba(255, 86, 24, 0)');
+          ambientCtx.fillStyle = emberBloom;
+          ambientCtx.fillRect(0, 0, width, height);
+
+          ambientSigils = ambientSigils.filter(sigil => drawNeoSigil(ambientCtx, sigil));
+          while (ambientSigils.length < Math.max(4, Math.floor(window.innerWidth / 280))) {
+            ambientSigils.push(createNeoSigil());
+          }
+        } else if (ambientMode === 'mica') {
+          ambientCtx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+          ambientCtx.fillRect(0, 0, width, height);
+
+          ambientParticles.forEach((particle, index) => {
+            particle.y += particle.speedY;
+            particle.x += particle.driftX + Math.sin((now * 0.0012) + particle.swing) * 0.28;
+
+            if (particle.y > height + particle.radius * 2) {
+              ambientParticles[index] = { ...createSnowParticle(), y: -particle.radius * 3 };
+              return;
+            }
+
+            ambientCtx.fillStyle = `rgba(255, 255, 255, ${particle.alpha})`;
+            ambientCtx.beginPath();
+            ambientCtx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            ambientCtx.fill();
+          });
+        } else if (ambientMode === 'saku') {
+          const floralGlow = ambientCtx.createLinearGradient(0, 0, 0, height);
+          floralGlow.addColorStop(0, 'rgba(255, 221, 109, 0.06)');
+          floralGlow.addColorStop(1, 'rgba(255, 168, 66, 0.02)');
+          ambientCtx.fillStyle = floralGlow;
+          ambientCtx.fillRect(0, 0, width, height);
+
+          ambientParticles.forEach((particle, index) => {
+            particle.y += particle.speedY;
+            particle.x += particle.driftX + Math.sin((now * 0.0013) + particle.swing) * 0.46;
+            particle.rotate += particle.rotateSpeed;
+
+            if (particle.y > height + particle.size * 2) {
+              ambientParticles[index] = { ...createFlowerParticle(), y: -particle.size * 2 };
+              return;
+            }
+
+            drawFlower(ambientCtx, particle);
+          });
+        }
+
+        ambientFrame = window.requestAnimationFrame(renderAmbient);
+      }
+
+      function stopAmbient() {
+        ambientRunning = false;
+        ambientMode = '';
+        ambientLastRender = 0;
+        if (ambientFrame) {
+          window.cancelAnimationFrame(ambientFrame);
+          ambientFrame = 0;
+        }
+        if (ambientCtx) {
+          ambientCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+      }
+
+      function startAmbient(mode) {
+        if (!ambientCanvas || !ambientCtx) return;
+        ambientMode = mode;
+        resizeAmbientCanvas();
+        populateAmbientParticles();
+        ambientRunning = true;
+        ambientLastRender = 0;
+        if (ambientFrame) {
+          window.cancelAnimationFrame(ambientFrame);
+        }
+        ambientFrame = window.requestAnimationFrame(renderAmbient);
+      }
+
       async function loadMember() {
         const params = new URLSearchParams(window.location.search);
         const memberKey = params.get('user') || 'neo';
@@ -463,10 +790,17 @@
 
           // Apply theme
           document.documentElement.style.setProperty('--theme-bg', member.theme_color);
-          document.documentElement.style.setProperty('--theme-text', member.is_dark_mode ? '#ffffff' : '#1b1b1b');
-          document.documentElement.style.setProperty('--theme-muted', member.muted_text_color || `color-mix(in srgb, ${member.is_dark_mode ? '#ffffff' : '#1b1b1b'} 34%, transparent)`);
+          const themeText = memberKey === 'mica' ? '#ffffff' : (member.is_dark_mode ? '#ffffff' : '#1b1b1b');
+          document.documentElement.style.setProperty('--theme-text', themeText);
+          document.documentElement.style.setProperty('--theme-muted', member.muted_text_color || `color-mix(in srgb, ${themeText} 34%, transparent)`);
           document.documentElement.style.setProperty('--gallery-border', member.gallery_border_color || (memberKey === 'mica' ? '#ffffff' : '#000000'));
           document.body.dataset.member = memberKey;
+
+          if (memberKey === 'neo' || memberKey === 'mica' || memberKey === 'saku') {
+            startAmbient(memberKey);
+          } else {
+            stopAmbient();
+          }
           
           document.body.classList.remove('dark-mode-manual');
           if (member.is_dark_mode) {
@@ -594,6 +928,12 @@
           document.getElementById('loading').innerText = 'Error loading member data.';
         }
       }
+
+      window.addEventListener('resize', () => {
+        if (!ambientRunning) return;
+        resizeAmbientCanvas();
+        populateAmbientParticles();
+      });
 
       loadMember();
     </script>
