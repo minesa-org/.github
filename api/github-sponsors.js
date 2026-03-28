@@ -47,7 +47,7 @@ module.exports = async (_req, res) => {
 	res.setHeader("Cache-Control", "s-maxage=1800, stale-while-revalidate=86400");
 
 	const login = process.env.GITHUB_SPONSORS_LOGIN || "minesa-org";
-	const token = process.env.GITHUB_TOKEN;
+	const token = process.env.SPONSOR_TOKEN;
 
 	if (!token) {
 		res.status(500).json({
