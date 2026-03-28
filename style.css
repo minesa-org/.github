@@ -288,18 +288,55 @@ main {
 .if-logo-link {
   border: none !important;
   display: flex;
+  color: inherit !important;
+  transform-origin: center;
 }
 .if-logo-link:hover {
   border: none !important;
   background-color: transparent !important;
   transform: none !important;
 }
-.if-logo-link svg {
+.if-logo-icon {
   height: 38px;
   width: auto;
+  display: block;
+  transform-origin: center;
+  transition: transform 220ms ease;
+}
+
+.if-logo-icon path {
   fill: currentColor;
 }
 
+.if-header .if-logo-link:hover .if-logo-icon {
+  animation: playful-logo-wobble 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+@keyframes playful-logo-wobble {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  20% {
+    transform: scale(1.12) rotate(-6deg);
+  }
+
+  40% {
+    transform: scale(1.18) rotate(5deg);
+  }
+
+  60% {
+    transform: scale(1.14) rotate(-3deg);
+  }
+
+  80% {
+    transform: scale(1.08) rotate(2deg);
+  }
+
+  100% {
+    transform: scale(1.1) rotate(0deg);
+  }
+}
 .if-separator {
   color: #a0a0a0;
   font-size: 24px;
@@ -311,6 +348,12 @@ main {
   letter-spacing: 2px;
   color: #a0a0a0;
   font-size: 14px;
+}
+
+.if-team-section {
+  display: block;
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.375rem 1.5rem;
 }
 
 .if-team-list {
