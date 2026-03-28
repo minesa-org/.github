@@ -10,7 +10,8 @@
   </head>
   <body>
     <main>
-      <header><a href="./static/index.html">
+      <div class="game-screen-content">
+        <header><a href="./static/index.html">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 500 500"
@@ -211,10 +212,10 @@
             id="element-1"
           />
         </svg></a>
-      </header>
+        </header>
 
-      <div>
-        <section>
+        <div>
+          <section>
           <h1>
             We're bringing fun back to<br />
             apps and your computer
@@ -659,9 +660,19 @@
               >
             </nav>
           </footer>
-        </section>
+          </section>
+        </div>
       </div>
     </main>
+
+    <button class="game-close" id="game-close" type="button">Close Game</button>
+    <button class="game-restart" id="game-restart" type="button">Restart</button>
+
+    <div class="game-hud" id="game-hud" aria-live="polite">
+      <div class="game-chip game-timer" id="game-timer">Launch in 5.0s</div>
+      <div class="game-chip game-score" id="game-score">Level 01 / Length 001</div>
+      <div class="game-chip game-status" id="game-status">Hover the Minesa logo to launch Ghost Grid.</div>
+    </div>
 
     <div id="grid-overlay" aria-hidden="true"></div>
   </body>
