@@ -1,0 +1,419 @@
+@import url("https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Vollkorn+SC:wght@400;600;700&display=swap");
+
+:root {
+  --bg: #070707;
+  --text: #f8f2ea;
+  --muted: rgba(248, 242, 234, 0.6);
+  --accent: #c77b57;
+  --accent-border: rgba(240, 188, 96, 0.58);
+  --danger: #ff1717;
+  --font-display: "Averia Serif Libre", serif;
+  --font-ui: "Vollkorn SC", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.db-page {
+  overflow: clip;
+}
+
+.db-hero {
+  position: relative;
+  min-height: 100vh;
+  padding-inline: 2rem;
+  padding-block: 0;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.db-hero__backdrop,
+.db-hero__vignette,
+.db-hero__grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.db-hero__backdrop {
+  z-index: -3;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.72) 51%, rgba(0, 0, 0, 0.96) 75%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.12) 22%, rgba(0, 0, 0, 0.78) 100%),
+    url("assets/dungeon_blitz_r/background.png") center center / cover no-repeat;
+}
+
+.db-hero__vignette {
+  z-index: -2;
+  box-shadow:
+    inset 0 0 160px rgba(0, 0, 0, 0.8),
+    inset 0 -80px 160px rgba(0, 0, 0, 0.82);
+}
+
+.db-hero__grain {
+  z-index: -1;
+  opacity: 0.15;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px);
+  background-size: 11px 11px, 13px 13px;
+  mix-blend-mode: soft-light;
+}
+
+.db-header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
+}
+
+.db-logo img {
+  width: clamp(4rem, 7vw, 5.4rem);
+}
+
+.db-nav {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2.75rem);
+  padding-top: 0.25rem;
+  row-gap: 0.8rem;
+}
+
+.db-nav__link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.95rem 0.2rem;
+  font-size: clamp(0.82rem, 1.35vw, 0.98rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 238, 0.94);
+}
+
+.db-nav__link small {
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.db-nav__link--active {
+  position: relative;
+  padding: 1.15rem 2.35rem 1.75rem;
+}
+
+.db-nav__link--active::before {
+  content: "";
+  position: absolute;
+  top: -1.1rem;
+  left: -0.95rem;
+  right: -0.95rem;
+  bottom: -0.55rem;
+  background: top center / 100% 100% no-repeat
+    url("assets/dungeon_blitz_r/Active_Nav_Background.svg");
+  z-index: -1;
+  pointer-events: none;
+}
+
+.db-nav__link--disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.db-launch {
+  align-self: start;
+  min-height: 3.2rem;
+  border: 1px solid rgba(180, 180, 180, 0.24);
+  background: linear-gradient(180deg, rgba(119, 119, 119, 0.28) 0%, rgba(65, 65, 65, 0.22) 100%);
+  color: rgba(255, 255, 255, 0.52);
+  padding: 0.52rem 1.04rem;
+  border-radius: 0.3rem;
+  font: inherit;
+  font-size: clamp(0.84rem, 1.35vw, 0.96rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  cursor: not-allowed;
+}
+
+.db-hero__content {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-block: clamp(1.5rem, 4vh, 3rem);
+}
+
+.db-copy {
+  width: min(48rem, 100%);
+  text-align: center;
+  margin-right: clamp(0rem, 3vw, 2rem);
+}
+
+.db-copy__ornament {
+  width: min(100%, 48rem);
+  margin-inline: auto;
+}
+
+.db-copy h1 {
+  margin: 1rem 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6vw, 5.4rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.db-copy__lead {
+  margin: 2rem auto 0;
+  max-width: 40ch;
+  font-size: clamp(0.98rem, 2vw, 1.55rem);
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.db-copy__status {
+  margin-top: 3rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 3.2rem);
+  color: var(--danger);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.db-credit {
+  position: absolute;
+  right: 2rem;
+  bottom: 1.6rem;
+  display: grid;
+  justify-items: end;
+  gap: 0.15rem;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.db-credit__icons {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.db-credit__icons img:first-child {
+  width: 1.5rem;
+}
+
+.db-credit__icons img:last-child {
+  width: 2.2rem;
+}
+
+.db-credit p,
+.db-credit strong {
+  line-height: 1;
+}
+
+.db-credit p {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.1em;
+}
+
+.db-credit strong {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 1100px) {
+  .db-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .db-nav,
+  .db-launch {
+    display: none;
+  }
+
+  .db-nav {
+    flex-wrap: wrap;
+  }
+
+  .db-launch {
+    justify-self: center;
+  }
+
+  .db-hero__content {
+    justify-content: center;
+    min-height: 58vh;
+  }
+
+  .db-copy {
+    margin-right: 0;
+  }
+
+  .db-copy__ornament {
+    width: min(100%, 40rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .db-hero {
+    min-height: 100svh;
+    padding-inline: 1rem;
+    padding-block: 0;
+  }
+
+  .db-hero__backdrop {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.64) 0%, rgba(0, 0, 0, 0.38) 18%, rgba(0, 0, 0, 0.86) 100%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+      url("assets/dungeon_blitz_r/background.png") 28% center / cover no-repeat;
+  }
+
+  .db-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 0.65rem;
+  }
+
+  .db-nav__link {
+    min-width: 7.5rem;
+    font-size: 0.86rem;
+    line-height: 1.1;
+  }
+
+  .db-nav__link--active {
+    padding: 1.05rem 1.55rem 1.55rem;
+  }
+
+  .db-nav__link--active::before {
+    top: -1rem;
+    left: -0.85rem;
+    right: -0.85rem;
+    bottom: -0.5rem;
+  }
+
+  .db-launch {
+    width: min(100%, 16rem);
+    padding: 0.46rem 0.92rem;
+    font-size: 0.86rem;
+  }
+
+  .db-hero__content {
+    min-height: auto;
+    flex: 1;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .db-copy {
+    width: 100%;
+  }
+
+  .db-copy__ornament {
+    width: min(100%, 24rem);
+  }
+
+  .db-copy__lead {
+    margin-top: 1.4rem;
+    max-width: 26ch;
+    font-size: clamp(0.95rem, 4.4vw, 1.2rem);
+    line-height: 1.5;
+  }
+
+  .db-copy__status {
+    margin-top: 1.8rem;
+    font-size: clamp(1.7rem, 7.2vw, 2.4rem);
+  }
+
+  .db-credit {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .db-credit strong {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .db-header {
+    gap: 1rem;
+  }
+
+  .db-nav {
+    gap: 0.5rem;
+  }
+
+  .db-nav__link {
+    min-width: 6.9rem;
+    font-size: 0.78rem;
+  }
+
+  .db-nav__link small {
+    font-size: 0.5rem;
+  }
+
+  .db-nav__link--active {
+    padding: 0.95rem 1.2rem 1.4rem;
+  }
+
+  .db-nav__link--active::before {
+    top: -0.95rem;
+    left: -0.75rem;
+    right: -0.75rem;
+    bottom: -0.45rem;
+  }
+
+  .db-copy h1 {
+    font-size: clamp(2.15rem, 12vw, 3.2rem);
+  }
+
+  .db-copy__ornament {
+    width: min(100%, 18rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
