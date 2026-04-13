@@ -68,7 +68,7 @@ a {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.72) 51%, rgba(0, 0, 0, 0.96) 75%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.12) 22%, rgba(0, 0, 0, 0.78) 100%),
-    url("assets/dungeon_blitz_r/background.png") center center / cover no-repeat;
+    url("assets/dungeon_blitz_r/background.webp") center center / cover no-repeat;
 }
 
 .db-hero__vignette {
@@ -302,7 +302,7 @@ a {
     background:
       linear-gradient(180deg, rgba(0, 0, 0, 0.64) 0%, rgba(0, 0, 0, 0.38) 18%, rgba(0, 0, 0, 0.86) 100%),
       linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-      url("assets/dungeon_blitz_r/background.png") 28% center / cover no-repeat;
+      url("assets/dungeon_blitz_r/background.webp") 28% center / cover no-repeat;
   }
 
   .db-nav {
