@@ -157,8 +157,8 @@
   "telahair": {
     "name": "Arda A.",
     "avatar": "../assets/Telahair.png",
-    "theme_color": "#0b3012",
-    "muted_text_color": "#5d7662",
+    "theme_color": "#8069BF ",
+    "muted_text_color": "#C8B8E8",
     "is_dark_mode": true,
     "quote": "From one game to the next.",
     "bio": [
@@ -193,6 +193,21 @@
     "muted_text_color": "#8e6a65",
     "is_dark_mode": true,
     "quote": "In coding, vibe is key... but I am tired.",
+    "bio": [
+      "I am member of <img src=\"../assets/member_assets/text_logo_minesa.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Minesa Studios\"> since 2025.",
+      "I am working as maintainer on <img src=\"../assets/member_assets/text_logo_dungeon_blitz.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Dungeon Blitz\"> preservation project."
+    ],
+    "socials": {},
+    "gallery": [],
+    "stickers": []
+  },
+  "cheetoo": {
+    "name": "Paul I.",
+    "avatar": "../assets/Cheetoo.png",
+    "theme_color": "#BD75A9",
+    "muted_text_color": "#E5C1E3",
+    "is_dark_mode": true,
+    "quote": "Code like a cheetoo.",
     "bio": [
       "I am member of <img src=\"../assets/member_assets/text_logo_minesa.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Minesa Studios\"> since 2025.",
       "I am working as maintainer on <img src=\"../assets/member_assets/text_logo_dungeon_blitz.png\" style=\"height:1em; vertical-align:middle;\" alt=\"Dungeon Blitz\"> preservation project."

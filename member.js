@@ -1,5 +1,5 @@
 (function () {
-	const MEMBER_ORDER = ["mica", "neo", "saku", "telahair", "ekmek", "tired"];
+	const MEMBER_ORDER = ["mica", "neo", "saku", "telahair", "ekmek", "tired", "cheetoo"];
 	const signatureAssets = {
 		mica: "assets/signatures/Micha%20G..svg",
 		neo: "assets/signatures/%C4%B0brahim%20G..svg",
@@ -7,6 +7,7 @@
 		telahair: "assets/signatures/Arda%20A..svg",
 		ekmek: "assets/signatures/%C3%96mer%20E..svg",
 		tired: "assets/signatures/Iskhak%20W..svg",
+		cheetoo: "assets/signatures/Paul%20I..svg",
 	};
 
 	const refs = {
